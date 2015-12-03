@@ -1,0 +1,16 @@
+{
+  "name": "zagame",
+  "homepage": "https://github.com/hamhec/zagame",
+  "authors": [
+    "Abdelraouf Hecham <hecham.abdelraouf@gmail.com>"
+  ],
+  "description": "These are zagame front end dependecies",
+  "main": "public",
+  "moduleType": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-aria": "~1.4.8",
+    "angular-animate": "~1.4.8"
+  }
+}
