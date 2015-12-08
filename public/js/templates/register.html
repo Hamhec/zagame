@@ -1,0 +1,44 @@
+<md-card class="card">
+  <md-toolbar>
+    <h2 class="md-toolbar-tools">Sign up</h2>
+  </md-toolbar>
+
+  <md-card-content layout="column" flex>
+    <form name="registerForm" role="form" method="POST">
+      <!-- Social login -->
+      <div layout="column">
+        <md-button class="md-primary" aria-label="Login" type="button" flex>
+          Sign Up with Facebook
+        </md-button>
+        <md-button class="md-primary" aria-label="Login" type="button" flex>
+          Sign Up with Google+
+        </md-button>
+      </div>
+
+      <h3 class="md-subhead center">Or sign up with your email adresse</h3>
+      <!-- Regular login -->
+      <div layout="column">
+        <md-input-container>
+          <label>Username</label>
+          <input ng-model="register.data.username">
+        </md-input-container>
+        <md-input-container>
+          <label>Email</label>
+          <input ng-model="register.data.email">
+        </md-input-container>
+        <md-input-container>
+          <label>Password</label>
+          <input type="password" ng-model="register.data.password">
+        </md-input-container>
+        <md-input-container>
+          <label>Confirm Password</label>
+          <input type="password" ng-model="register.data.password_confirmation">
+        </md-input-container>
+        <md-datepicker ng-model="register.data.birthdate" md-placeholder="Date Of Birth"></md-datepicker>
+        <md-button class="md-primary" aria-label="Login" type="button" flex ng-click="register.submit()">
+          Sign Up
+        </md-button>
+      </div>
+    </form>
+  </md-card-content>
+</md-card>

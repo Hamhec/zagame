@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+  return view('master');
+});
+
+Route::get('login','DomainController@index');
+
+Route::group(array('prefix'=>'/api'),function(){
+  // Authentication & registration routes
+  //Route::post('/auth/login','Auth\AuthController@postLogin');
+  //Route::get('/auth/login','DomainController@index');
+  Route::get('/auth/logout','Auth\AuthController@getLogout');
+  Route::post('/auth/register','Auth\AuthController@PostRegister');
+
 });
