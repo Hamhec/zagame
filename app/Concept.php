@@ -18,7 +18,7 @@ class Concept extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'image', 'description', 'created_at', 'updated_at'];
 
     /**
     * Get the the appreciations made for this concept

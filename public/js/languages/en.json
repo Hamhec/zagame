@@ -1,0 +1,34 @@
+{
+  "BTN_HOME": "Home",
+  "BTN_DOMAINS": "Domains",
+  "BTN_LOGOUT": "Logout",
+  "BTN_REGISTER": "Register",
+
+  "SCORES": "Matches & Scores",
+  "STATS": "Statistics",
+  "PURPOSE": "Purpose of this game",
+  "PRIVACY": "Privacy Policy",
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "PASSWORD_CONFIRM": "Confirm Password",
+  "BTN_LOGIN": "Log In",
+  "BTN_SIGN_UP": "Sign Up",
+
+  "PLAY_HEADER": "What do you associate '{{ name }}' with?",
+  "PLAY_INPUT": "Type in something that you associate with '{{ name }}'",
+  "PLAY_BTN_SUBMIT": "Submit & Compare with another player",
+  "PLAY_BTN_REPLAY": "Play another concept from this domain",
+
+  "DOMAIN_HEADER": "Pick a Domain",
+  "DOMAIN_NBR_CLICKS": "{{ n }} people already gave their opinions and ideas about this domain",
+
+  "PROFILE_HEADER": "Matchmaking for the '{{ name }}' domain",
+  "PROFILE_PLAY": "Play",
+
+  "SCORE_HEADER": "You have been matched against '{{ username }}', You are {{ matching * 100 | number:2}} % compatible.",
+  "SCORE_CONCEPT": "Your associations for '{{ name }}'",
+  "SCORE_CONCEPT_OPPONENT": "The other player associations for '{{ name }}'",
+  "SCORE_PLAY_CONCEPT": "Play another concept from this domain",
+  "SCORE_PLAY_DOMAIN": "Play another domain"
+}

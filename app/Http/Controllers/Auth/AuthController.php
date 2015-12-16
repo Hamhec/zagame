@@ -8,6 +8,8 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Response;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -48,7 +50,7 @@ class AuthController extends Controller
             'username' => 'required|max:255|unique:users',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
-            'birthdate' => 'required';
+            //'birthdate' => 'required'
         ]);
     }
 
@@ -64,7 +66,8 @@ class AuthController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'birthdate' => $data['birthdate'];
+            'birthdate' => '12/11/2000',//$data['birthdate'],
+            'help' => 0,
         ]);
     }
 
@@ -100,7 +103,6 @@ class AuthController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postLogin(Request $request) {
-        return Response::json(array('flash' => 'login working'), 500);
         $this->validate($request, [
             $this->loginUsername() => 'required', 'password' => 'required',
         ]);
@@ -143,8 +145,8 @@ class AuthController extends Controller
     * @param  User user
     * @return \Illuminate\Http\Response
     */
-    protected function authenticated(Request $request, user) {
-      return user;
+    protected function authenticated(Request $request, $user) {
+      return $user;
     }
 
 

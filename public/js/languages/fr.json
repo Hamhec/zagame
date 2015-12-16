@@ -1,0 +1,34 @@
+{
+  "BTN_HOME": "Acceuil",
+  "BTN_DOMAINS": "Domaines",
+  "BTN_LOGOUT": "Déconnexion",
+  "BTN_REGISTER": "S'inscrire",
+
+  "SCORES": "Matches & Scores",
+  "STATS": "Statistiques",
+  "PURPOSE": "Objectif de ce jeux",
+  "PRIVACY": "Politique de Confidentialité",
+
+  "USERNAME": "Pseudo",
+  "PASSWORD": "Mot de passe",
+  "PASSWORD_CONFIRM": "Confirmer le Mot de passe",
+  "BTN_LOGIN": "S'identifier",
+  "BTN_SIGN_UP": "S'inscrire",
+
+  "PLAY_HEADER": "Qu'associez vous '{{ name }}' avec?",
+  "PLAY_INPUT": "Saisir quelque chose que vous associez avec '{{ name }}', un adjectif, un mot...etc.",
+  "PLAY_BTN_SUBMIT": "Envoyer & comparer avec un autre joueur",
+  "PLAY_BTN_REPLAY": "Jouer avec un autre concept de ce domaine",
+
+  "DOMAIN_HEADER": "Choisir un Domaine",
+  "DOMAIN_NBR_CLICKS": "{{ n }} personnes ont déjà donne leurs avis et idées sur ce domaine",
+
+  "PROFILE_HEADER": "Indiquez votre profil par rapport au domaine '{{ name }}'",
+  "PROFILE_PLAY": "Jouer",
+
+  "SCORE_HEADER": "Vous avez joué contre '{{ username }}', vos deux profils sont à {{ matching * 100 | number:2}} % compatible.",
+  "SCORE_CONCEPT": "Vos associations pour le concept '{{ name }}'",
+  "SCORE_CONCEPT_OPPONENT": "les associations du joueur adverse pour le concept '{{ name }}'",
+  "SCORE_PLAY_CONCEPT": "Jouer avec un autre concept de ce domaine",
+  "SCORE_PLAY_DOMAIN": "Jouer dans un autre domaine"
+}

@@ -26,10 +26,10 @@ class Profile extends Model
     public $timestamps = false;
 
     /**
-    * Get the user that made this association
+    * The domains of this profile
     */
-    public function domain() {
-      return $this->belongsTo('App\Domain');
+    public function domains() {
+      return $this->belongsToMany('App\Domain', 'domain_profile')->withPivot('importance');
     }
 
     /**

@@ -1,0 +1,38 @@
+<md-card class="card">
+  <md-toolbar>
+    <h2 class="md-toolbar-tools" translate="PROFILE_HEADER" translate-values='{ name: profiles.domain.title }'></h2>
+  </md-toolbar>
+
+  <md-card-content>
+    <md-list>
+      <md-list-item class="md-3-line">
+        <img class="md-avatar" hide-sm src="{{ profiles.domain.image }}" />
+        <div class="md-list-item-text" flex>
+          <h3>{{ profiles.domain.title }}</h3>
+          <h4 translate="DOMAIN_NBR_CLICKS" translate-values='{ n: profiles.domain.nbr_clicks }'></h4>
+          <p>{{ profiles.domain.text }}</p>
+        </div>
+        <md-button class="md-fab md-accent" aria-label="Play" ng-click="profiles.submit()" style="margin-top:10px;">
+          <i class="material-icons md-36 md-special">check</i>
+        </md-button>
+      </md-list-item>
+    </md-list>
+    <md-divider></md-divider>
+    <md-list>
+      <form role="form" method="POST">
+        <md-list-item class="md-3-line dashed-divider" ng-repeat="profile in profiles.data">
+          <img class="md-avatar" hide-sm src="http://www.uspto.gov/sites/default/files/styles/wysiwyg_small/public/Help%20-%20Question%20Mark.png?itok=LL3t9IXZ" />
+          <div class="md-list-item-text">
+            <h3>{{ profile.designation }}</h3>
+            <h4>{{ profile.question }}</h4>
+            <md-radio-group layout="row" ng-model="profiles.data[$index].answer">
+              <md-radio-button ng-repeat="value in profile.possible_values" value="{{value.id}}">{{value.value}}</md-radio-button>
+            </md-radio-group>
+          </div>
+        </md-list-item>
+        <div layout="column"><md-button class="md-primary" aria-label="Play" type="button" flex ng-click="profiles.submit()" flex translate="PROFILE_PLAY">
+        </md-button></div>
+      </form>
+    </md-list>
+  </md-card-content>
+</md-card>

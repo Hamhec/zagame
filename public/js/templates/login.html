@@ -1,11 +1,11 @@
 <md-card class="card">
   <md-toolbar>
-    <h2 class="md-toolbar-tools">Log In</h2>
+    <h2 class="md-toolbar-tools" translate="BTN_LOGIN"></h2>
   </md-toolbar>
 
   <md-card-content layout="column" flex>
-    <form name="loginForm" role="form" method="POST">
-      <!-- Social login -->
+    <form role="form" method="POST">
+      <!-- Social login
       <div layout="column">
         <md-button class="md-primary" aria-label="Login" type="button" flex>
           Log In with Facebook
@@ -15,19 +15,18 @@
         </md-button>
       </div>
 
-      <h3 class="md-subhead center">Or login with your username</h3>
+      <h3 class="md-subhead center">Or login with your username</h3> -->
       <!-- Regular login -->
       <div layout="column">
         <md-input-container>
-          <label>Username</label>
+          <label translate="USERNAME"></label>
           <input ng-model="login.data.username">
         </md-input-container>
         <md-input-container>
-          <label>Password</label>
+          <label translate="PASSWORD"></label>
           <input type="password" ng-model="login.data.password">
         </md-input-container>
-        <md-button class="md-primary" aria-label="Login" type="button" flex ng-click="login.submit()">
-          Log In
+        <md-button class="md-primary" aria-label="Login" flex ng-click="login.submit()" translate="BTN_LOGIN">
         </md-button>
       </div>
     </form>

@@ -11,10 +11,6 @@
       SessionService.unset('authenticated');
     };
 
-    var loginError = function(response) {
-      FlashService.show(response.data.flash);
-    };
-
     var sanitizeCredentials = function(credentials) {
       return {
         username: $sanitize(credentials.username),
@@ -27,20 +23,23 @@
       // Authentication function
       login: function(credentials) {
         var login = $http.post('api/auth/login', sanitizeCredentials(credentials));
-        login.then(cacheSession, loginError);
+        login.then(cacheSession, FlashService.showError);
         login.then(FlashService.clear);
         return login;
       },
       // Loging out function
       logout: function() {
+        uncacheSession();
         var logout = $http.get('api/auth/logout');
-        logout.then(uncacheSession);
+        //logout.then(uncacheSession);
         return logout;
       },
 
       isLoggedIn: function() {
         return SessionService.get('authenticated');
-      }
+      },
+      cacheSession: cacheSession,
+      uncacheSession: uncacheSession
     };
   }
 

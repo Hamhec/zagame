@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
+use App\Domain;
+use App\Match;
 
 class DomainController extends Controller
 {
@@ -15,9 +17,18 @@ class DomainController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return Response::json(array('flash' => 'login working'), 500);
+    public function index() {
+      $domains = Domain::all();
+      foreach($domains as $domain) {
+        // get concept ids of this domain
+        $concepts = $domain->concepts->transform(function($concept, $key) {
+          return $concept->id;
+        });
+        if($concepts->isEmpty()) $domain->nbr_clicks = 0;
+        else $domain->nbr_clicks = floor(Match::whereIn('concept_id', $concepts)->count() / $concepts->count());
+      }
+
+      return $domains;
     }
 
     /**

@@ -17,8 +17,6 @@ class CreateProfilesTable extends Migration
             $table->string('designation');
             $table->text('question');
             $table->tinyInteger('infinite');
-            $table->integer('domain_id')->unsigned();
-            $table->foreign('domain_id')->references('id')->on('domains');
         });
     }
 

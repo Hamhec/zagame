@@ -1,4 +1,96 @@
+div.icon {
+  margin-right: 30px;
+  padding-top: 11px; }
+
 p.center, h3.center {
   text-align: center; }
+
+.dashed-divider {
+  margin-top: 10px;
+  border-bottom: 1px dashed #ddd; }
+
+.my-association {
+  margin-bottom: 5px; }
+
+p.my-text {
+  padding: 12px;
+  height: 49px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px black solid;
+  background-color: #E8EAF6; }
+
+#associations .md-button.my-button:hover .material-icons {
+  color: black; }
+
+.md-button.my-good, .md-button.my-bof, .md-button.my-bad, .md-button.my-clear, .md-button.my-move {
+  margin: 0px;
+  border-radius: 0px;
+  padding: 6px 0px; }
+
+.md-button.my-good, .md-button.my-good:hover, div.my-good {
+  background-color: #4CAF50; }
+
+.md-button.my-bof, .md-button.my-bof:hover, div.my-bof {
+  background-color: #CDDC39; }
+
+.md-button.my-bad, .md-button.my-bad:hover, div.my-bad {
+  background-color: #FFC107; }
+
+.md-button.my-clear, .md-button.my-clear:hover {
+  background-color: #FF5722; }
+
+.md-button.my-move, .md-button.my-move:hover, div.my-move {
+  background-color: #3F51B5; }
+
+.md-button.my-appreciated, .md-button.my-button:hover {
+  border: 1px black solid; }
+
+div.my-button, div.my-move {
+  height: 47px;
+  padding: 0px 15px;
+  border: 1px black solid;
+  border-left: 0px;
+  vertical-align: middle; }
+
+div.my-move {
+  border: 1px black solid;
+  border-right: 0px; }
+
+.material-icons.md-24.md-spec {
+  position: relative;
+  top: 10px; }
+
+.material-icons.md-18 {
+  font-size: 18px; }
+
+.material-icons.md-24 {
+  font-size: 24px; }
+
+.material-icons.md-36 {
+  font-size: 36px; }
+
+.material-icons.md-48 {
+  font-size: 48px; }
+
+.material-icons.md-36.md-special {
+  position: relative;
+  top: 10px; }
+
+.material-icons.md-24.md-special {
+  position: relative;
+  top: 5px; }
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54); }
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-light {
+  color: white; }
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3); }
 
 /*# sourceMappingURL=style.css.map */

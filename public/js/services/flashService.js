@@ -7,9 +7,16 @@
     return {
       show: function(message) {
         $rootScope.flash = message;
+
+      },
+      clearShow: function() {
+        $rootScope.flash = "";
       },
       clear: function() {
         $rootScope.flash = "";
+      },
+      showError: function(response) {
+        $rootScope.flash = response.data.flash;
       }
     };
   }

@@ -1,3 +1,106 @@
+$blue: #E8EAF6;
+$move: #3F51B5;
+$clear: #FF5722;
+$good: #4CAF50;
+$bof: #CDDC39;
+$bad: #FFC107;
+$border: black;
+
+// side bar
+div.icon {
+  margin-right: 30px;
+  padding-top: 11px;
+}
+// main
 p.center, h3.center {
   text-align: center;
 }
+
+.dashed-divider {
+  margin-top: 10px;
+  border-bottom: 1px dashed #ddd;
+}
+
+// Association item
+.my-association {
+  margin-bottom: 5px;
+  //background-color: $blue;
+}
+
+p.my-text {
+  padding: 12px;
+  height: 49px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px $border solid;
+  background-color: $blue;
+  //color: white;
+}
+
+// Appreciation buttons
+#associations .md-button.my-button:hover .material-icons {
+    color:black;
+}
+
+.md-button.my-good, .md-button.my-bof, .md-button.my-bad, .md-button.my-clear, .md-button.my-move {
+  margin: 0px;
+  border-radius: 0px;
+  padding: 6px 0px;
+}
+.md-button.my-good, .md-button.my-good:hover, div.my-good {
+  background-color: $good;
+}
+.md-button.my-bof, .md-button.my-bof:hover, div.my-bof {
+  background-color: $bof;
+}
+.md-button.my-bad, .md-button.my-bad:hover, div.my-bad {
+  background-color: $bad;
+}
+.md-button.my-clear, .md-button.my-clear:hover {
+  background-color: $clear;
+}
+.md-button.my-move, .md-button.my-move:hover, div.my-move {
+  background-color: $move;
+}
+
+// on Appreciation click
+.md-button.my-appreciated, .md-button.my-button:hover {
+  border: 1px $border solid;
+}
+
+// For showing association in /score
+div.my-button, div.my-move {
+  height: 47px;
+  padding: 0px 15px;
+  border: 1px $border solid;
+  border-left: 0px;
+  vertical-align: middle;
+}
+div.my-move {
+  border: 1px $border solid;
+  border-right: 0px;
+}
+.material-icons.md-24.md-spec {
+position: relative;
+top: 10px; }
+
+// Rules for sizing the icon.
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-36.md-special {
+position: relative;
+top: 10px; }
+
+.material-icons.md-24.md-special {
+position: relative;
+top: 5px; }
+
+// Rules for using icons as black on a light background.
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+// Rules for using icons as white on a dark background.
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

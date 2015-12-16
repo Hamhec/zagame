@@ -12,6 +12,7 @@
       AuthenticationService.login(login.data)
       .then(function(response) { // success
         $location.path('/domains');
+        $location.path('/domains');
       });
     }
   }

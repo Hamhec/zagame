@@ -1,13 +1,13 @@
 <md-card class="card">
   <md-toolbar>
-    <h2 class="md-toolbar-tools">Sign up</h2>
+    <h2 class="md-toolbar-tools" translate="BTN_SIGN_UP"></h2>
   </md-toolbar>
 
   <md-card-content layout="column" flex>
     <form name="registerForm" role="form" method="POST">
-      <!-- Social login -->
+      <!-- Social login
       <div layout="column">
-        <md-button class="md-primary" aria-label="Login" type="button" flex>
+        <md-button class="md-primary" aria-label="Login" type="button" flex translate="">
           Sign Up with Facebook
         </md-button>
         <md-button class="md-primary" aria-label="Login" type="button" flex>
@@ -15,11 +15,11 @@
         </md-button>
       </div>
 
-      <h3 class="md-subhead center">Or sign up with your email adresse</h3>
+      <h3 class="md-subhead center">Or sign up with your email adresse</h3> -->
       <!-- Regular login -->
       <div layout="column">
         <md-input-container>
-          <label>Username</label>
+          <label translate="USERNAME"></label>
           <input ng-model="register.data.username">
         </md-input-container>
         <md-input-container>
@@ -27,16 +27,15 @@
           <input ng-model="register.data.email">
         </md-input-container>
         <md-input-container>
-          <label>Password</label>
+          <label translate="PASSWORD"></label>
           <input type="password" ng-model="register.data.password">
         </md-input-container>
         <md-input-container>
-          <label>Confirm Password</label>
+          <label translate="PASSWORD_CONFIRM"></label>
           <input type="password" ng-model="register.data.password_confirmation">
         </md-input-container>
-        <md-datepicker ng-model="register.data.birthdate" md-placeholder="Date Of Birth"></md-datepicker>
-        <md-button class="md-primary" aria-label="Login" type="button" flex ng-click="register.submit()">
-          Sign Up
+        <!--<md-datepicker ng-model="register.data.birthdate" md-placeholder="Date Of Birth"></md-datepicker>-->
+        <md-button class="md-primary" aria-label="Login" type="button" flex ng-click="register.submit()" translate="BTN_SIGN_UP">
         </md-button>
       </div>
     </form>

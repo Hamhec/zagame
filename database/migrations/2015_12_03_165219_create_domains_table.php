@@ -16,7 +16,6 @@ class CreateDomainsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('text');
-            $table->integer('nbr_clicks');
             $table->string('image');
         });
     }

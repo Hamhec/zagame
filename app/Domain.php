@@ -12,13 +12,13 @@ class Domain extends Model
      * @var string
      */
     protected $table = 'domains';
-
+    public $n_clicks;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['title', 'text', 'nbr_clicks', 'image'];
+    protected $fillable = ['title', 'text', 'image'];
 
     /*
     * Prevent laravel from adding timestamps
@@ -26,16 +26,16 @@ class Domain extends Model
     public $timestamps = false;
 
     /*
-    * Get the profiles related to this domain
-    */
-    public function profiles() {
-      return $this->hasMany('App\Profile');
-    }
-
-    /*
     * Get the concepts that belong to this domain
     */
     public function concepts() {
       return $this->belongsToMany('App\Concept', 'concept_domain');
+    }
+
+    /*
+    * The profiles that belong to this domain
+    */
+    public function profiles() {
+      return $this->belongsToMany('App\Profile', 'domain_profile')->withPivot('importance');
     }
 }

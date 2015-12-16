@@ -1,11 +1,13 @@
 (function() {
   'use strict';
 
-  angular.module('myApp').controller('RegisterController', ['$location', 'RegistrationService', RegisterController]);
+  angular.module('myApp').controller('RegisterController', ['$location', 'RegistrationService', 'FlashService', RegisterController]);
 
-  function RegisterController($location, RegistrationService) {
+  function RegisterController($location, RegistrationService, FlashService) {
     var register = this;
 
+    FlashService.clear();
+    
     register.data = {};
 
     register.submit = function() {

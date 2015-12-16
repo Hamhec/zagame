@@ -1,11 +1,11 @@
 <md-card class="card">
   <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="DOMAIN_HEADER"></h2>
+    <h2 class="md-toolbar-tools" translate="MATCHES_HEADER"></h2>
   </md-toolbar>
 
   <md-card-content>
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="domain in domains.data" ng-click="domains.select(domain)">
+      <md-list-item class="md-3-line" ng-repeat="match in matches.data" ng-click="matches.select(match)">
         <img class="md-avatar" hide-sm src="{{ domain.image }}" />
         <div class="md-list-item-text">
           <h3>{{ domain.title }}</h3>
