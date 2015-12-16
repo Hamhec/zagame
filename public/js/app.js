@@ -15,6 +15,11 @@
       controller:'RegisterController as register'
     });
 
+    $routeProvider.when('/home',{
+      templateUrl:'js/templates/home.html',
+      //controller:'PlayController as play'
+    });
+
     $routeProvider.when('/domains',{
       templateUrl:'js/templates/domains.html',
       controller:'DomainsController as domains'
@@ -35,7 +40,7 @@
       controller:'ScoreController as score'
     });
 
-    $routeProvider.otherwise({ redirectTo: '/login' });
+    $routeProvider.otherwise({ redirectTo: '/home' });
   });
 
   app.config(function($httpProvider) {
@@ -81,7 +86,7 @@
 
   // Handle Security
   app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService) {
-    var routesThatDontRequireAuth = ['/login', '/register'];
+    var routesThatDontRequireAuth = ['/home', '/login', '/register'];
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
       if($location.path() === "/login" && AuthenticationService.isLoggedIn()) {
@@ -112,7 +117,7 @@
           .parent(angular.element(document.querySelector('#content')))
           .clickOutsideToClose(true)
           .title('Oops!')
-          .content("Cette fonctionnalité n'a pas encore été programmée dans la version 0.1.3 de ce jeux. Pour plus d'infos, suivez nous sur Github: <a href='#'><md-button>Za Game Github</md-button></a>")
+          .content("Cette fonctionnalité n'a pas encore été programmée dans la version 0.1.3 de ce jeux. Pour plus d'infos, suivez nous sur Github: <a href='https://github.com/hamhec/zagame'><md-button>Za Game Github</md-button></a>")
           .ariaLabel('Alert Dialog Problem')
           .ok('Ok')
           .targetEvent(ev)

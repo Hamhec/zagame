@@ -46,7 +46,10 @@
     <!-- Sidenav -->
     <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$mdMedia('gt-md')">
       <md-toolbar layout-align="center center">
-        <h1 class="md-display-1">ZA GAME</h1>
+        <div style="text-align:center">
+          <h1 class="md-display-1">KAT Game</h1>
+          <h2 class="md-title">Knowledge AssociaTions Game</h2>
+        </div>
         <div layout="row" ng-show="!isLoggedIn()">
           <md-button ng-click="goTo('/login')" translate="BTN_LOGIN"></md-button>
           <md-button ng-click="goTo('/register')" translate="BTN_REGISTER"></md-button>
@@ -122,7 +125,7 @@
         <md-button ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
             <div class="icon"><i class="material-icons md-24">view_headline</i></div>
         </md-button>
-        <h1 class="md-toolbar-tools" layout-align-lt-md="center" flex>Za Game</h1>
+        <h1 class="md-toolbar-tools" layout-align="center" flex>Knowledge AssociaTions Game v0.1.3</h1>
         <md-button ng-click="goTo('/login')" translate="BTN_HOME"></md-button>
         <md-button ng-click="goTo('/domains')" translate="BTN_DOMAINS"></md-button>
         <md-button ng-click="logout()" ng-show="isLoggedIn()" translate="BTN_LOGOUT"></md-button>
@@ -145,6 +148,7 @@
           </div>
         </md-content>
       </div>
+
     </div>
   </body>
 </html>
