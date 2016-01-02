@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('myApp').factory('PlayService', ['$http', '$sanitize', 'FlashService', PlayService]);
+  angular.module('myApp').factory('PlayService', ['$http', '$sanitize', 'SessionService', 'FlashService', PlayService]);
 
-  function PlayService($http, $sanitize, FlashService) {
+  function PlayService($http, $sanitize, SessionService, FlashService) {
     var sanitize = function(concept) {
       return {
         name: $sanitize(concept.name),
@@ -13,7 +13,17 @@
     }
     return {
       getConcepts: function(domain) {
+        var concept_id = SessionService.get('concept.id');
+        if(concept_id) { // we need to show a specific
+          SessionService.unset('concept.id');
+          domain.concept_id = concept_id;
+        }
         var request = $http.post('api/concepts', domain);
+        request.then(FlashService.clear, FlashService.showError);
+        return request;
+      },
+      getPlayedConcepts: function(domain) {
+        var request = $http.post('api/playedConcepts', domain);
         request.then(FlashService.clear, FlashService.showError);
         return request;
       },

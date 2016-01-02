@@ -1,15 +1,12 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="PLAY_HEADER" translate-values='{ name: play.concept.name }'></h2>
-  </md-toolbar>
-
-  <md-card-content>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="PLAY_HEADER" translate-values='{ name: play.concept.name }'></h2>
+  <div class="card-content">
     <form role="form" method="POST">
     <md-list>
       <md-list-item class="md-2-line">
         <img class="md-avatar" hide-sm src="{{ play.concept.image }}" />
         <div class="md-list-item-text">
-          <h3>{{ play.concept.name }}</h3>
+          <h3>{{ play.concept.name }} <span class="text-small">- {{sideNav.domain.title}} ({{sideNav.play.nbr_played_concepts}}/{{sideNav.play.nbr_concepts}})</span></h3>
           <p>{{ play.concept.description }}</p>
         </div>
       </md-list-item>
@@ -21,39 +18,38 @@
           <label translate="PLAY_INPUT" translate-values='{ name: play.concept.name }'></label>
           <input name="{{play.concept.name}}" ng-model="play.input.associated_concept">
         </md-input-container>
-        <md-button class="md-fab md-accent" aria-label="add" ng-click="play.addConcept()">
+        <md-button class="md-fab" aria-label="add" ng-click="play.addConcept()">
           <i class="material-icons md-36 md-special">add</i>
         </md-button>
     </md-content>
 
     <md-list dnd-list="play.concept.associations" id="associations">
+      <div ng-repeat="association in play.concept.associations">
         <md-list-item class="md-1-line my-association"
-            ng-repeat="association in play.concept.associations"
             dnd-draggable="association"
             dnd-moved="play.concept.associations.splice($index, 1)">
+            <md-button class="appreciation-button" type="button"><i class="material-icons md-24 md-special my-move ">swap_vert</i></md-button>
 
-          <md-button class="my-move my-button" type="button"><i class="material-icons md-24 md-light md-special">swap_vert</i></md-button>
+            <p class="md-list-item-text" flex>{{ association.associated_concept.name }}</p>
 
+            <md-button
+              class="appreciation-button" type="button" ng-click="play.appreciate($index, 2)">
+              <i ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 2) ? 'my-good' : 'not-appreciated'"
+              class="material-icons md-24 md-special" >thumb_up</i></md-button>
+            <md-button class="appreciation-button" type="button" ng-click="play.appreciate($index, 1)">
+              <i ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 1) ? 'my-bof' : 'not-appreciated'"
+              class="material-icons md-24 md-special">thumbs_up_down</i></md-button>
+            <md-button class="appreciation-button" type="button" ng-click="play.appreciate($index, 0)">
+              <i ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 0) ? 'my-bad' : 'not-appreciated'"
+              class="material-icons md-24 md-special">thumb_down</i></md-button>
 
-          <p class="my-text" flex>{{ association.associated_concept.name }}</p>
-
-
-
-          <md-button ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 2) ? 'my-appreciated' : ''"
-            class="my-good my-button" type="button" ng-click="play.appreciate($index, 2)">
-            <i class="material-icons md-24 md-light md-special" >thumb_up</i></md-button>
-          <md-button ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 1) ? 'my-appreciated' : ''"
-            class="my-bof my-button" type="button" ng-click="play.appreciate($index, 1)">
-            <i class="material-icons md-24 md-light md-special">thumbs_up_down</i></md-button>
-          <md-button ng-class="(play.concept.associations[$index].associated_concept.appreciations[0].appreciation == 0) ? 'my-appreciated' : ''"
-            class="my-bad my-button" type="button" ng-click="play.appreciate($index, 0)">
-            <i class="material-icons md-24 md-light md-special">thumb_down</i></md-button>
-
-          <md-button class="my-clear my-button" type="button" ng-click="play.concept.associations.splice($index, 1)">
-            <i class="material-icons md-24 md-light md-special">clear</i></md-button>
-
+            <md-button class="appreciation-button" type="button" ng-click="play.concept.associations.splice($index, 1)">
+              <i class="material-icons md-24 md-special my-clear">clear</i></md-button>
         </md-list-item>
+        <md-divider></md-divider>
+      </div>
     </md-list>
+
     <div layout="row">
       <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="play.submit($event)" flex translate="PLAY_BTN_SUBMIT">
       </md-button>
@@ -61,5 +57,6 @@
       </md-button>
     </div>
     </form>
-  </md-card-content>
-</md-card>
+  </div>
+  <md-divider></md-divider>
+</div>

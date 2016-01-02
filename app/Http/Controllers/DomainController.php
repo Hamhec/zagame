@@ -20,12 +20,7 @@ class DomainController extends Controller
     public function index() {
       $domains = Domain::all();
       foreach($domains as $domain) {
-        // get concept ids of this domain
-        $concepts = $domain->concepts->transform(function($concept, $key) {
-          return $concept->id;
-        });
-        if($concepts->isEmpty()) $domain->nbr_clicks = 0;
-        else $domain->nbr_clicks = floor(Match::whereIn('concept_id', $concepts)->count() / $concepts->count());
+        $domain->nbr_concepts = count(\DB::table('concept_domain')->where('domain_id', $domain->id)->get());
       }
 
       return $domains;

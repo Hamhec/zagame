@@ -2,6 +2,19 @@
   'use strict';
 
   var app = angular.module('myApp', ['ngMaterial', 'ngAnimate', 'ngRoute', 'ngSanitize', 'dndLists', 'pascalprecht.translate']);
+  // Theaming and colors
+  app.config(function($mdThemingProvider) {
+    // Extend the red theme with a few different colors
+    var neonRedMap = $mdThemingProvider.extendPalette('red', {
+      '500': '#db4c3f'
+    });
+    // Register the new color palette map with the name <code>neonRed</code>
+    $mdThemingProvider.definePalette('neonRed', neonRedMap);
+
+    // Use that theme for the primary intentions
+    $mdThemingProvider.theme('default')
+    .primaryPalette('neonRed')
+  });
 
   // Handle the routing
   app.config(function($routeProvider, $locationProvider){
@@ -85,7 +98,7 @@
   });
 
   // Handle Security
-  app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService) {
+  app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService, SessionService, PlayService) {
     var routesThatDontRequireAuth = ['/home', '/login', '/register'];
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
@@ -110,6 +123,19 @@
     $rootScope.goTo = function(page) {
       $location.path(page);
     }
+
+    $rootScope.sideNav = {};
+    $rootScope.sideNav.conceptSelected = function (concept) {
+      if($location.path() == '/play') $route.reload();
+      SessionService.set('concept.id', concept.id);
+      $location.path('/play');
+    };
+
+    $rootScope.sideNav.score = function (concept) {
+      SessionService.set('concept_score', concept.id);
+      $location.path('/score');
+      $route.reload();
+    };
 
     $rootScope.showNotCompleted = function(ev) {
       $mdDialog.show(

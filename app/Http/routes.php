@@ -14,7 +14,7 @@
 Route::get('/', function() {
   return view('master');
 });
-
+Route::get('/do','DomainController@index');
 Route::group(array('prefix'=>'/api'),function(){
   // Authentication & registration routes
   Route::post('/auth/login','Auth\AuthController@postLogin');
@@ -31,6 +31,7 @@ Route::group(array('prefix'=>'/api'),function(){
 
   // Concepts
   Route::post('/concepts','ConceptController@getConcepts');
+  Route::post('/playedConcepts','ConceptController@getPlayedConcepts');
   Route::post('/concepts/addAssociations', 'ConceptController@saveAssociations');
 
   // Score

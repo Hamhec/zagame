@@ -1,9 +1,6 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="BTN_LOGIN"></h2>
-  </md-toolbar>
-
-  <md-card-content layout="column" flex>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="BTN_LOGIN"></h2>
+  <div class="card-content">
     <form role="form" method="POST">
       <!-- Social login
       <div layout="column">
@@ -26,9 +23,12 @@
           <label translate="PASSWORD"></label>
           <input type="password" ng-model="login.data.password">
         </md-input-container>
-        <md-button class="md-primary" aria-label="Login" flex ng-click="login.submit()" translate="BTN_LOGIN">
-        </md-button>
+        <div layout="column" layout-align="center center">
+          <md-button class="md-primary md-raised" aria-label="Login" flex ng-click="login.submit()" translate="BTN_LOGIN">
+          </md-button>
+        </div>
       </div>
     </form>
-  </md-card-content>
-</md-card>
+  </div>
+  <md-divider></md-divider>
+</div>

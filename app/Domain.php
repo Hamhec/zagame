@@ -12,7 +12,6 @@ class Domain extends Model
      * @var string
      */
     protected $table = 'domains';
-    public $n_clicks;
     /**
      * The attributes that are mass assignable.
      *

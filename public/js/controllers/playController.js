@@ -1,12 +1,19 @@
 (function() {
   'use strict';
 
-  angular.module('myApp').controller('PlayController', ['$route', '$scope', '$mdDialog', '$location', 'SessionService', 'FlashService', 'DomainsService', 'PlayService', PlayController]);
+  angular.module('myApp').controller('PlayController', ['$rootScope', '$route', '$scope', '$mdDialog', '$location', 'SessionService', 'FlashService', 'DomainsService', 'PlayService', PlayController]);
 
-  function PlayController($route, $scope, $mdDialog, $location, SessionService, FlashService, DomainsService, PlayService) {
+  function PlayController($rootScope, $route, $scope, $mdDialog, $location, SessionService, FlashService, DomainsService, PlayService) {
     var play = this;
     play.input = {};
     play.concept = {};
+
+    $rootScope.sideNav.tab = 1;
+    $rootScope.sideNav.domain = DomainsService.getDomain();
+    PlayService.getPlayedConcepts(DomainsService.getDomain()).then(function (response) {
+      $rootScope.sideNav.play = response.data;
+      console.log($rootScope.sideNav);
+    });
 
     PlayService.getConcepts(DomainsService.getDomain())
     .then(function (response) {
@@ -73,7 +80,14 @@
     };
 
     play.playAnotherConcept = function() {
-      $route.reload();
+      play.input = {};
+      play.concept = {};
+
+      PlayService.getConcepts(DomainsService.getDomain())
+      .then(function (response) {
+        play.concept = response.data;
+        console.log(play.concept);
+      });
     };
 
     play.showConfirm = function(ev) {

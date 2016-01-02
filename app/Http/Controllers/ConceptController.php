@@ -18,25 +18,39 @@ class ConceptController extends Controller
 {
 
     public function getConcepts(Request $request) {
+      // get the domain
       $domain = Domain::findOrFail($request->input('id'));
-      // Get concepts where the player never played
-      $concepts = $domain->concepts()->whereNotExists(function ($query) {
-        $query->select('score')->from('matches')
-              ->where('user_id', Auth::user()->id)
-              ->orWhere('opponent_user_id', Auth::user()->id);
-      })->get();
 
-      // If all concepts have been played, then just get them all
-      if($concepts->isEmpty()) {
+      $concept_id = $request->input('concept_id');
+      if($concept_id) { // get selected concept if it exists
+        $concept = Concept::findOrFail($concept_id);
+        $concept->load(['associations' => function($query) {
+          $query->where('user_id', Auth::user()->id);
+        }]);
+      } else { // Choose randomly
+        // Get concepts
         $concepts = $domain->concepts;
+        // load associations
+        foreach($concepts as $concept) {
+          $concept->load(['associations' => function($query) {
+            $query->where('user_id', Auth::user()->id);
+          }]);
+        }
+
+        $concepts = $concepts->filter(function ($concept) {
+          return $concept->associations->count() == 0; // keep only those with no assoc
+        });
+
+        // If all concepts have been played, then just get them all
+        if($concepts->isEmpty()) {
+          $concepts = $domain->concepts;
+        }
+
+        // Grab a random concept
+        $concept = $concepts->random();
       }
 
-      // Grab a random concept
-      $concept = $concepts->random();
-
-      $concept->load(['associations' => function($query) {
-        $query->where('user_id', Auth::user()->id);
-      }]);
+      // load appreciation
       $concept->load(['appreciations' => function($query) {
         $query->where('user_id', Auth::user()->id);
       }]);
@@ -45,6 +59,32 @@ class ConceptController extends Controller
 
       //$concepts->associations->associated_concept->load()
       return $concept;
+    }
+
+    public function getPlayedConcepts(Request $request) {
+      // get the domain
+      $domain = Domain::findOrFail($request->input('id'));
+
+      // Get concepts
+      $concepts = $domain->concepts;
+      // load associations
+      foreach($concepts as $concept) {
+        $concept->load(['associations' => function($query) {
+          $query->where('user_id', Auth::user()->id);
+        }]);
+      }
+
+
+      $nbr_concepts = $concepts->count();
+
+      $concepts = $concepts->filter(function ($concept) {
+        return $concept->associations->count() > 0; // keep only played ones
+      });
+
+      $nbr_played_concepts = $concepts->count();
+      return Response::json(['concepts' => $concepts,
+            'nbr_concepts' => $nbr_concepts,
+            'nbr_played_concepts' => $nbr_played_concepts]);
     }
 
     public function addConcept(Request $request) {
@@ -86,8 +126,11 @@ class ConceptController extends Controller
                     ->where('user_id', '<>', $user->id)
                     ->whereNull('opponent_user_id')->get()->first();
 
-      // if there is no open match then sorry :(
-      if(!$match) {
+
+      if($match) { // if there is an open match then close it
+        $match->opponent_user_id = $user->id;
+        $match->save();
+      } else { // if there is no open match then sorry :(
         // create a match
         if(!Match::where('concept_id', $main_concept->id)
                       ->where('user_id', $user->id)

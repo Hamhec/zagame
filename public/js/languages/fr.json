@@ -16,12 +16,12 @@
   "BTN_SIGN_UP": "S'inscrire",
 
   "PLAY_HEADER": "Qu'associez vous '{{ name }}' avec?",
-  "PLAY_INPUT": "Saisir quelque chose que vous associez avec '{{ name }}', un adjectif, un mot...etc.",
+  "PLAY_INPUT": "Saisissez quelque chose que vous associez avec '{{ name }}', puis appuiez sur 'Entrer'",
   "PLAY_BTN_SUBMIT": "Envoyer & comparer avec un autre joueur",
   "PLAY_BTN_REPLAY": "Jouer avec un autre concept de ce domaine",
 
   "DOMAIN_HEADER": "Choisir un Domaine",
-  "DOMAIN_NBR_CLICKS": "{{ n }} personnes ont déjà donne leurs avis et idées sur ce domaine",
+  "DOMAIN_NBR_CONCEPTS": "{{ n }} concepts dans ce domaine.",
 
   "PROFILE_HEADER": "Indiquez votre profil par rapport au domaine '{{ name }}'",
   "PROFILE_PLAY": "Jouer",

@@ -1,20 +1,14 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="PROFILE_HEADER" translate-values='{ name: profiles.domain.title }'></h2>
-  </md-toolbar>
-
-  <md-card-content>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="PROFILE_HEADER" translate-values='{ name: profiles.domain.title }'></h2>
+  <div class="card-content">
     <md-list>
       <md-list-item class="md-3-line">
         <img class="md-avatar" hide-sm src="{{ profiles.domain.image }}" />
         <div class="md-list-item-text" flex>
-          <h3>{{ profiles.domain.title }}</h3>
+          <h3 class="card-subheader">{{ profiles.domain.title }}</h3>
           <h4 translate="DOMAIN_NBR_CLICKS" translate-values='{ n: profiles.domain.nbr_clicks }'></h4>
           <p>{{ profiles.domain.text }}</p>
         </div>
-        <md-button class="md-fab md-accent" aria-label="Play" ng-click="profiles.submit()" style="margin-top:10px;">
-          <i class="material-icons md-36 md-special">check</i>
-        </md-button>
       </md-list-item>
     </md-list>
     <md-divider></md-divider>
@@ -30,9 +24,11 @@
             </md-radio-group>
           </div>
         </md-list-item>
-        <div layout="column"><md-button class="md-primary" aria-label="Play" type="button" flex ng-click="profiles.submit()" flex translate="PROFILE_PLAY">
+        <div layout="column" layout-align="center center">
+          <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="profiles.submit()" translate="PROFILE_PLAY">
         </md-button></div>
       </form>
     </md-list>
-  </md-card-content>
-</md-card>
+  </div>
+  <md-divider></md-divider>
+</div>

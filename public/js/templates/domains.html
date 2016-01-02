@@ -1,19 +1,15 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="DOMAIN_HEADER"></h2>
-  </md-toolbar>
-
-  <md-card-content>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="DOMAIN_HEADER"></h2>
+  <div class="card-content">
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="domain in domains.data" ng-click="domains.select(domain)">
+      <md-list-item class="md-2-line domain" ng-repeat="domain in domains.data" ng-click="domains.select(domain)">
         <img class="md-avatar" hide-sm src="{{ domain.image }}" />
-        <div class="md-list-item-text">
-          <h3>{{ domain.title }}</h3>
-          <h4 translate="DOMAIN_NBR_CLICKS" translate-values='{ n: domain.nbr_clicks }'></h4>
+        <div class="md-list-item-text" style="margin-bottom: 5px">
+          <h3 class="card-subheader">{{ domain.title }} <span class="text-small" translate="DOMAIN_NBR_CONCEPTS" translate-values='{ n: domain.nbr_concepts }'></span></h3>
           <p>{{ domain.text }}</p>
         </div>
         <md-divider></md-divider>
       </md-list-item>
     </md-list>
-  </md-card-content>
-</md-card>
+  </div>
+</div>

@@ -1,101 +1,74 @@
 <!-- Matching % -->
-<div flex>
-  <md-toolbar class="md-accent md-hue-3">
-    <h1 class="md-toolbar-tools" translate="SCORE_HEADER" translate-values='{ username: score.opponent.username, matching: score.matching }'></h1>
-  </md-toolbar>
-</div>
+<div ng-show="!score.message">
 
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="SCORE_CONCEPT" translate-values='{ name: score.user_associations.name }'></h2>
-  </md-toolbar>
-
-  <md-toolbar>
-    <h2 class="md-toolbar-tools">Votre score est: [Le calcul du score n'a pas encore été implementé]</h2>
-  </md-toolbar>
-
-  <md-card-content>
-    <!--<md-list>
-      <md-list-item class="md-2-line">
-        <img class="md-avatar" hide-sm src="{{ score.user_associations.image }}" />
-        <div class="md-list-item-text">
-          <h3>{{ score.user_associations.name }}</h3>
-          <p>{{ score.user_associations.description }}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-    <md-divider></md-divider>-->
-
-    <md-list>
-        <md-list-item class="md-1-line my-association"
-            ng-repeat="association in score.user_associations.associations">
-
-          <div class="my-move"><i class="material-icons md-24 md-light md-spec ">toc</i></div>
-
-          <p class="my-text" flex>{{ association.associated_concept.name }}</p>
-
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
-            class="my-good my-button">
-            <i class="material-icons md-24 md-light md-spec " >thumb_up</i></div>
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 1)"
-            class="my-bof my-button">
-            <i class="material-icons md-24 md-light md-spec ">thumbs_up_down</i></div>
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 0)"
-            class="my-bad my-button">
-            <i class="material-icons md-24 md-light md-spec ">thumb_down</i></div>
-
-        </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>
-
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="SCORE_CONCEPT_OPPONENT" translate-values='{ name: score.user_associations.name }'></h2>
-  </md-toolbar>
-
-  <md-card-content>
-  <!--  <md-list>
-      <md-list-item class="md-2-line">
-        <img class="md-avatar" hide-sm src="{{ score.user_associations.image }}" />
-        <div class="md-list-item-text">
-          <h3>{{ score.user_associations.name }}</h3>
-          <p>{{ score.user_associations.description }}</p>
-        </div>
-      </md-list-item>
-    </md-list>
-    <md-divider></md-divider>
--->
-    <md-list>
-        <md-list-item class="md-1-line my-association"
-            ng-repeat="association in score.opponent_associations.associations">
-
-          <div class="my-move"><i class="material-icons md-24 md-light md-spec ">toc</i></div>
-
-          <p class="my-text" flex>{{ association.associated_concept.name }}</p>
-
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
-            class="my-good my-button">
-            <i class="material-icons md-24 md-light md-spec " >thumb_up</i></div>
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 1)"
-            class="my-bof my-button">
-            <i class="material-icons md-24 md-light md-spec ">thumbs_up_down</i></div>
-          <div ng-show="(association.associated_concept.appreciations[0].appreciation == 0)"
-            class="my-bad my-button">
-            <i class="material-icons md-24 md-light md-spec ">thumb_down</i></div>
-
-        </md-list-item>
-    </md-list>
-  </md-card-content>
-</md-card>
-
-<md-card class="card" style="margin-top: 20px;">
-  <md-card-content>
-    <div layout="row">
-      <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="score.playAnotherConcept()" flex translate="SCORE_PLAY_CONCEPT">
-      </md-button>
-      <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="goTo('/domains')" flex translate="SCORE_PLAY_DOMAIN">
-      </md-button>
+  <div class="card" layout="column">
+    <h2 class="md-headline card-header">Votre score est: [Le calcul du score n'a pas encore été implementé]</h2>
+    <div class="card-content">
+      <p class="md-body-1" translate="SCORE_HEADER" translate-values='{ username: score.opponent.username, matching: score.matching }'></p>
     </div>
-  </md-card-content>
-</md-card>
+    <md-divider></md-divider>
+  </div>
+
+  <div class="card" layout="column">
+    <h2 class="md-headline card-header" translate="SCORE_CONCEPT" translate-values='{ name: score.user_associations.name }'></h2>
+    <div class="card-content">
+      <md-list>
+        <div ng-repeat="association in score.user_associations.associations">
+          <md-list-item class="md-1-line my-association">
+              <p class="md-list-item-text" flex>{{ association.associated_concept.name }}</p>
+
+              <div
+                ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
+                class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-good" >thumb_up</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 1)"
+              class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-bof">thumbs_up_down</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 0)"
+              class="appreciation-button">
+                <i class="material-icons md-24 md-special my-bad">thumb_down</i></div>
+          </md-list-item>
+          <md-divider></md-divider>
+        </div>
+      </md-list>
+    </div>
+  </div>
+
+  <div class="card" layout="column">
+    <h2 class="md-headline card-header" translate="SCORE_CONCEPT_OPPONENT" translate-values='{ name: score.user_associations.name }'></h2>
+    <div class="card-content">
+      <md-list>
+        <div   ng-repeat="association in score.opponent_associations.associations">
+          <md-list-item class="md-1-line my-association">
+              <p class="md-list-item-text" flex>{{ association.associated_concept.name }}</p>
+
+              <div
+                ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
+                class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-good" >thumb_up</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 1)"
+              class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-bof">thumbs_up_down</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 0)"
+              class="appreciation-button">
+                <i class="material-icons md-24 md-special my-bad">thumb_down</i></div>
+          </md-list-item>
+          <md-divider></md-divider>
+        </div>
+      </md-list>
+    </div>
+  </div>
+
+
+
+  <div layout="row">
+    <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="score.playAnotherConcept()" flex translate="SCORE_PLAY_CONCEPT">
+    </md-button>
+    <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="goTo('/domains')" flex translate="SCORE_PLAY_DOMAIN">
+    </md-button>
+  </div>
+</div>

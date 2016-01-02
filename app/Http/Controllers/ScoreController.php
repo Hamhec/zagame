@@ -16,15 +16,28 @@ class ScoreController extends Controller
     public function getScore(Request $request) {
       $user = Auth::user();
 
-      $match = Match::find($request->input('match_id'));
+      // Get the last match I closed
+      $closed_match = Match::where('concept_id', $request->input('concept_score'))
+                      ->where('opponent_user_id', $user->id)
+                      ->orderBy('updated_at')->get()->first();
+      // Get the last match I opened
+      $opened_match = Match::where('concept_id', $request->input('concept_score'))
+                      ->where('user_id', $user->id)
+                      ->orderBy('updated_at')->get()->first();
 
+      if($closed_match == null || ($opened_match != null && $opened_match->updated_at > $closed_match->updated_at)) { // Opened a match
+        if($opened_match->opponent_user_id == null) { // no one closed my opened match
+          return Response::json(['match' => null]);
+        }
+        $match = $opened_match;
+        $opponent = $match->opponent;
+      } else { // closed a match
+        $match = $closed_match;
+        $opponent = $match->user;
+      }
       // calculate score
-      $matching = $user->calculateMatching($match->user, $request->input('domain_id'));
-      // close the match
-      $match->opponent_user_id = $user->id;
-      $match->save();
+      $matching = $user->calculateMatching($opponent, $request->input('domain_id'));
 
-      $opponent = $match->user;
       $concept = $match->concept;
       // Load the user's associations
       $user_associations = $this->getAssociationsForUser($concept->id, $user);
@@ -38,7 +51,6 @@ class ScoreController extends Controller
         'user_associations' => $user_associations,
         'opponent_associations' => $opponent_associations]);
     }
-
     public function getAssociationsForUser($concept_id, $player) {
       $concept = Concept::find($concept_id);
       $concept->load(['associations' => function($query) use ($player) {

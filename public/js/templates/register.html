@@ -1,9 +1,6 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="BTN_SIGN_UP"></h2>
-  </md-toolbar>
-
-  <md-card-content layout="column" flex>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="BTN_SIGN_UP"></h2>
+  <div class="card-content">
     <form name="registerForm" role="form" method="POST">
       <!-- Social login
       <div layout="column">
@@ -35,9 +32,12 @@
           <input type="password" ng-model="register.data.password_confirmation">
         </md-input-container>
         <!--<md-datepicker ng-model="register.data.birthdate" md-placeholder="Date Of Birth"></md-datepicker>-->
-        <md-button class="md-primary" aria-label="Login" type="button" flex ng-click="register.submit()" translate="BTN_SIGN_UP">
-        </md-button>
+        <div layout="column" layout-align="center center">
+          <md-button class="md-primary md-raised" aria-label="Login" type="button" flex ng-click="register.submit()" translate="BTN_SIGN_UP">
+          </md-button>
+        </div>
       </div>
     </form>
-  </md-card-content>
-</md-card>
+  </div>
+  <md-divider></md-divider>
+</div>

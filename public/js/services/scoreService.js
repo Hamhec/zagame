@@ -6,9 +6,9 @@
   function ScoreService($http, $sanitize, FlashService, DomainsService) {
 
     return {
-      get: function(match_id) {
+      get: function(concept) {
         var match = {
-          match_id: match_id,
+          concept_score: concept,
           domain_id: DomainsService.getDomain().id
         }
         console.log("match:");
