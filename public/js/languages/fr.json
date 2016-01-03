@@ -30,5 +30,7 @@
   "SCORE_CONCEPT": "Vos associations pour le concept '{{ name }}'",
   "SCORE_CONCEPT_OPPONENT": "les associations du joueur adverse pour le concept '{{ name }}'",
   "SCORE_PLAY_CONCEPT": "Jouer avec un autre concept de ce domaine",
-  "SCORE_PLAY_DOMAIN": "Jouer dans un autre domaine"
+  "SCORE_PLAY_DOMAIN": "Jouer dans un autre domaine",
+
+  "MATCHES_HEADER": "Liste des matches joués"
 }

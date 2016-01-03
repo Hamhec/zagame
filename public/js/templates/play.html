@@ -28,7 +28,8 @@
         <md-list-item class="md-1-line my-association"
             dnd-draggable="association"
             dnd-moved="play.concept.associations.splice($index, 1)">
-            <md-button class="appreciation-button" type="button"><i class="material-icons md-24 md-special my-move ">swap_vert</i></md-button>
+            <md-button class="move-button" type="button" ng-click="play.moveUp($index)"><i class="material-icons md-24 md-special my-move ">keyboard_arrow_up</i></md-button>
+            <md-button class="move-button" type="button" ng-click="play.moveDown($index)"><i class="material-icons md-24 md-special my-move ">keyboard_arrow_down</i></md-button>
 
             <p class="md-list-item-text" flex>{{ association.associated_concept.name }}</p>
 

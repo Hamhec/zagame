@@ -53,6 +53,11 @@
       controller:'ScoreController as score'
     });
 
+    $routeProvider.when('/matches',{
+      templateUrl:'js/templates/matches.html',
+      controller:'MatchesController as matches'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/home' });
   });
 
@@ -98,10 +103,11 @@
   });
 
   // Handle Security
-  app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService, SessionService, PlayService) {
+  app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService, SessionService, PlayService, MatchService) {
     var routesThatDontRequireAuth = ['/home', '/login', '/register'];
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
+      $rootScope.getTotalScore();
       if($location.path() === "/login" && AuthenticationService.isLoggedIn()) {
         $location.path('/domains');
         return;
@@ -123,6 +129,16 @@
     $rootScope.goTo = function(page) {
       $location.path(page);
     }
+
+    $rootScope.totalScore = 0;
+    $rootScope.getTotalScore = function() {
+      if(AuthenticationService.isLoggedIn()) {
+        MatchService.getTotalScore().then(function(response) {
+          $rootScope.totalScore = response.data;
+        })
+      }
+    };
+    $rootScope.getTotalScore();
 
     $rootScope.sideNav = {};
     $rootScope.sideNav.conceptSelected = function (concept) {

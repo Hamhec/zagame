@@ -29,6 +29,7 @@
     <script type="text/javascript" src="/js/controllers/profilesController.js"></script>
     <script type="text/javascript" src="/js/controllers/playController.js"></script>
     <script type="text/javascript" src="/js/controllers/scoreController.js"></script>
+    <script type="text/javascript" src="/js/controllers/matchesController.js"></script>
     <!-- Application Services -->
     <script type="text/javascript" src="/js/services/sessionService.js"></script>
     <script type="text/javascript" src="/js/services/flashService.js"></script>
@@ -38,6 +39,7 @@
     <script type="text/javascript" src="/js/services/profilesService.js"></script>
     <script type="text/javascript" src="/js/services/playService.js"></script>
     <script type="text/javascript" src="/js/services/scoreService.js"></script>
+    <script type="text/javascript" src="/js/services/matchesService.js"></script>
     <!-- CSRF Token -->
     <script type="text/javascript">
       angular.module('myApp').constant("CSRF_TOKEN", '<?php echo csrf_token(); ?>');
@@ -51,6 +53,9 @@
 
       <h1 class="md-toolbar-tools" flex hide show-gt-md>Knowledge AssociaTions Game <span class="text-small">v0.1.3</span></h1>
       <h1 class="md-toolbar-tools" flex hide-gt-md>KAT <span class="text-small">v0.1.3</span></h1>
+
+      <md-button ng-click="goTo('/matches')" ng-show="isLoggedIn()">Score: {{totalScore}}pts</md-button>
+
       <md-button ng-click="goTo('/home')" translate="BTN_HOME"></md-button>
       <md-button ng-click="goTo('/domains')" translate="BTN_DOMAINS"></md-button>
       <md-button ng-click="logout()" ng-show="isLoggedIn()" translate="BTN_LOGOUT"></md-button>
@@ -93,11 +98,11 @@
         <md-tabs md-dynamic-height md-border-bottom md-selected="sideNav.tab">
           <md-tab label="Dashboard" ng-disabled="!isLoggedIn()">
             <md-list>
-              <md-list-item class="md-1-line" ng-click="alert('clicked')">
+              <md-list-item class="md-1-line" ng-click="goTo('/domains')">
                 <div class="icon"><i class="material-icons md-24">games</i></div>
                 <div class="md-list-item-text" flex translate="PROFILE_PLAY"></div>
               </md-list-item>
-              <md-list-item class="md-1-line" ng-click="alert('clicked')">
+              <md-list-item class="md-1-line" ng-click="goTo('/matches')">
                 <div class="icon"><i class="material-icons md-24">view_list</i></div>
                 <div class="md-list-item-text" flex translate="SCORES"></div>
               </md-list-item>

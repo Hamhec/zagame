@@ -19,7 +19,7 @@
           <div class="md-list-item-text">
             <h3>{{ profile.designation }}</h3>
             <h4>{{ profile.question }}</h4>
-            <md-radio-group layout="row" ng-model="profiles.data[$index].answer">
+            <md-radio-group layout-wrap layout="row" ng-model="profiles.data[$index].answer">
               <md-radio-button ng-repeat="value in profile.possible_values" value="{{value.id}}">{{value.value}}</md-radio-button>
             </md-radio-group>
           </div>

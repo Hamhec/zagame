@@ -14,7 +14,7 @@
 Route::get('/', function() {
   return view('master');
 });
-Route::get('/do','DomainController@index');
+Route::get('/do','ScoreController@getTotalScore');
 Route::group(array('prefix'=>'/api'),function(){
   // Authentication & registration routes
   Route::post('/auth/login','Auth\AuthController@postLogin');
@@ -36,4 +36,6 @@ Route::group(array('prefix'=>'/api'),function(){
 
   // Score
   Route::post('/score','ScoreController@getScore');
+  Route::post('/totalScore','ScoreController@getTotalScore');
+  Route::post('/matches','ScoreController@getMatches');
 });

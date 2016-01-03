@@ -30,5 +30,7 @@
   "SCORE_CONCEPT": "Your associations for '{{ name }}'",
   "SCORE_CONCEPT_OPPONENT": "The other player associations for '{{ name }}'",
   "SCORE_PLAY_CONCEPT": "Play another concept from this domain",
-  "SCORE_PLAY_DOMAIN": "Play another domain"
+  "SCORE_PLAY_DOMAIN": "Play another domain",
+
+  "MATCHES_HEADER": "List of played maches"
 }

@@ -1,19 +1,16 @@
-<md-card class="card">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools" translate="MATCHES_HEADER"></h2>
-  </md-toolbar>
-
-  <md-card-content>
+<div class="card" layout="column">
+  <h2 class="md-headline card-header" translate="MATCHES_HEADER"></h2>
+  <div class="card-content">
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="match in matches.data" ng-click="matches.select(match)">
-        <img class="md-avatar" hide-sm src="{{ domain.image }}" />
-        <div class="md-list-item-text">
-          <h3>{{ domain.title }}</h3>
-          <h4 translate="DOMAIN_NBR_CLICKS" translate-values='{ n: domain.nbr_clicks }'></h4>
-          <p>{{ domain.text }}</p>
+      <md-list-item class="md-2-line domain" ng-repeat="match in matches.data" ng-click="matches.select(match)">
+        <img class="md-avatar" hide-sm src="{{ match.concept.image }}" />
+        <div class="md-list-item-text" flex>
+          <h3>{{ match.concept.name }}</h3>
+          <p>Against <em>{{ match.opponent.username }}</em></p>
         </div>
+        <h3 class="card-subheader">{{match.score}}pts</h3>
         <md-divider></md-divider>
       </md-list-item>
     </md-list>
-  </md-card-content>
-</md-card>
+  </div>
+</div>

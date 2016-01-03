@@ -37,7 +37,7 @@
       var association = {
         associated_concept: custom_concept,
         concept_id: play.concept.id,
-        weight: play.concept.associations.length - 1,
+        weight: play.concept.associations.length,
       }
       play.concept.associations.push(association);
 
@@ -50,6 +50,7 @@
         domain_id: DomainsService.getDomain().id
       };
       PlayService.saveAssociations(data).then(function(response) {
+        $rootScope.getTotalScore();
         if(response.data.nomatch != undefined) { // there was no match :(
           // Appending dialog to document.body to cover sidenav in docs app
           // Modal dialogs should fully cover application
@@ -69,7 +70,7 @@
 
         } else { // there was a match!
           FlashService.clearShow();
-          SessionService.set('match_id', response.data.match_id);
+          SessionService.set('concept_score', play.concept.id);
           $location.path('/score');
         }
       });
@@ -78,6 +79,21 @@
     play.appreciate = function (index, opinion) {
       play.concept.associations[index].associated_concept.appreciations = [{appreciation: opinion}];
     };
+
+    play.moveUp = function(index) {
+      if(index > 0) {
+        var tmp = play.concept.associations[index];
+        play.concept.associations[index] = play.concept.associations[index - 1];
+        play.concept.associations[index - 1] = tmp;
+      }
+    }
+    play.moveDown = function(index) {
+      if(index < play.concept.associations.length - 1) {
+        var tmp = play.concept.associations[index];
+        play.concept.associations[index] = play.concept.associations[index + 1];
+        play.concept.associations[index + 1] = tmp;
+      }
+    }
 
     play.playAnotherConcept = function() {
       play.input = {};
@@ -89,6 +105,8 @@
         console.log(play.concept);
       });
     };
+
+
 
     play.showConfirm = function(ev) {
 

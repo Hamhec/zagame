@@ -1,8 +1,53 @@
-<!-- Matching % -->
-<div ng-show="!score.message">
+<div ng-show="!score.opponent">
+  <div class="card" layout="column">
+    <h2 class="md-headline card-header">No one challeged you yet!</h2>
+    <div class="card-content">
+      <p class="md-body-1">You associations for '{{score.user_associations.name}}' are saved, you can update them before someone challenges them. You will be notified when an opponent is found.</p>
+    </div>
+    <md-divider></md-divider>
+  </div>
 
   <div class="card" layout="column">
-    <h2 class="md-headline card-header">Votre score est: [Le calcul du score n'a pas encore été implementé]</h2>
+    <h2 class="md-headline card-header" translate="SCORE_CONCEPT" translate-values='{ name: score.user_associations.name }'></h2>
+    <div class="card-content">
+      <md-list>
+        <div ng-repeat="association in score.user_associations.associations">
+          <md-list-item class="md-1-line my-association">
+              <p class="md-list-item-text" >{{ association.associated_concept.name }}</p>
+
+              <p flex>[{{ score.showSimilarity(association) }}]</p>
+
+              <div
+                ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
+                class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-good" >thumb_up</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 1)"
+              class="appreciation-button">
+                <i
+                class="material-icons md-24 md-special my-bof">thumbs_up_down</i></div>
+              <div ng-show="(association.associated_concept.appreciations[0].appreciation == 0)"
+              class="appreciation-button">
+                <i class="material-icons md-24 md-special my-bad">thumb_down</i></div>
+          </md-list-item>
+          <md-divider></md-divider>
+        </div>
+      </md-list>
+    </div>
+  </div>
+
+  <div layout="row">
+    <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="score.playAnotherConcept()" flex translate="SCORE_PLAY_CONCEPT">
+    </md-button>
+    <md-button class="md-primary md-raised" aria-label="Play" type="button" flex ng-click="goTo('/domains')" flex translate="SCORE_PLAY_DOMAIN">
+    </md-button>
+  </div>
+</div>
+
+<div ng-show="score.opponent">
+  <!-- Matching % -->
+  <div class="card" layout="column">
+    <h2 class="md-headline card-header">Votre score est: {{score.match.score}} pts.</h2>
     <div class="card-content">
       <p class="md-body-1" translate="SCORE_HEADER" translate-values='{ username: score.opponent.username, matching: score.matching }'></p>
     </div>
@@ -15,7 +60,9 @@
       <md-list>
         <div ng-repeat="association in score.user_associations.associations">
           <md-list-item class="md-1-line my-association">
-              <p class="md-list-item-text" flex>{{ association.associated_concept.name }}</p>
+              <p class="md-list-item-text" >{{ association.associated_concept.name }}</p>
+
+              <p flex>[{{ score.showSimilarity(association) }}]</p>
 
               <div
                 ng-show="(association.associated_concept.appreciations[0].appreciation == 2)"
