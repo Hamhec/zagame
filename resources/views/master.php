@@ -65,7 +65,8 @@
 
     <!-- Body -->
     <md-content id="body" flex layout="row">
-      <md-sidenav layout="column" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')">
+      <md-sidenav layout="column" class="md-sidenav-left" md-is-locked-open="$mdMedia('gt-md')"
+      md-component-id="left">
         <md-list style="margin-bottom: 10px;">
           <!-- Home -->
           <md-list-item class="md-1-line" ng-click="goTo('/home')">

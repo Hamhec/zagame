@@ -130,6 +130,10 @@
       $location.path(page);
     }
 
+    $rootScope.toggleSidenav = function(menuId) {
+      $mdSidenav(menuId).toggle();
+    };
+
     $rootScope.totalScore = 0;
     $rootScope.getTotalScore = function() {
       if(AuthenticationService.isLoggedIn()) {
