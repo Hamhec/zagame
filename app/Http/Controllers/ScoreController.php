@@ -105,7 +105,8 @@ class ScoreController extends Controller
           $total_score += $score;
         }
       }
-
+      // 1pts for participation
+      $total_score += 1;
       if($match->score == null) {
         $match->score = $total_score;
         $match->save();
