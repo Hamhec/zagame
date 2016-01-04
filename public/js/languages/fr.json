@@ -26,6 +26,8 @@
   "PROFILE_HEADER": "Indiquez votre profil par rapport au domaine '{{ name }}'",
   "PROFILE_PLAY": "Jouer",
 
+  "SCORE": "Voir score",
+
   "SCORE_HEADER": "Vous avez joué contre '{{ username }}', vos deux profils sont à {{ matching * 100 | number:2}} % compatible.",
   "SCORE_CONCEPT": "Vos associations pour le concept '{{ name }}'",
   "SCORE_CONCEPT_OPPONENT": "les associations du joueur adverse pour le concept '{{ name }}'",

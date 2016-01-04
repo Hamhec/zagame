@@ -18,9 +18,10 @@
           <label translate="PLAY_INPUT" translate-values='{ name: play.concept.name }'></label>
           <input name="{{play.concept.name}}" ng-model="play.input.associated_concept">
         </md-input-container>
-        <md-button class="md-fab" aria-label="add" ng-click="play.addConcept()">
-          <i class="material-icons md-36 md-special">add</i>
-        </md-button>
+        <div layout="row" layout-align="center center">
+          <md-button class="md-primary md-raised" aria-label="add" ng-click="play.addConcept()">Add
+          </md-button>
+      </div>
     </md-content>
 
     <md-list dnd-list="play.concept.associations" id="associations">

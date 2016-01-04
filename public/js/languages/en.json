@@ -16,21 +16,24 @@
   "BTN_SIGN_UP": "Sign Up",
 
   "PLAY_HEADER": "What do you associate '{{ name }}' with?",
-  "PLAY_INPUT": "Type in something that you associate with '{{ name }}'",
-  "PLAY_BTN_SUBMIT": "Submit & Compare with another player",
+  "PLAY_INPUT": "Type in something that you associate with '{{ name }}' then hit 'Enter'",
+  "PLAY_BTN_SUBMIT": "Submit & Save associations for scoring",
   "PLAY_BTN_REPLAY": "Play another concept from this domain",
 
   "DOMAIN_HEADER": "Pick a Domain",
-  "DOMAIN_NBR_CLICKS": "{{ n }} people already gave their opinions and ideas about this domain",
+  "DOMAIN_NBR_CONCEPTS": "{{ n }} concepts in this domain.",
 
   "PROFILE_HEADER": "Matchmaking for the '{{ name }}' domain",
   "PROFILE_PLAY": "Play",
+
+  "SCORE": "See score",
 
   "SCORE_HEADER": "You have been matched against '{{ username }}', You are {{ matching * 100 | number:2}} % compatible.",
   "SCORE_CONCEPT": "Your associations for '{{ name }}'",
   "SCORE_CONCEPT_OPPONENT": "The other player associations for '{{ name }}'",
   "SCORE_PLAY_CONCEPT": "Play another concept from this domain",
   "SCORE_PLAY_DOMAIN": "Play another domain",
+
 
   "MATCHES_HEADER": "List of played maches"
 }

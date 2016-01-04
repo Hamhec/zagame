@@ -57,7 +57,7 @@
       <md-button ng-click="goTo('/matches')" ng-show="isLoggedIn()">Score: {{totalScore}}pts</md-button>
 
       <md-button ng-click="goTo('/home')" translate="BTN_HOME"></md-button>
-      <md-button ng-click="goTo('/domains')" translate="BTN_DOMAINS"></md-button>
+      <md-button ng-click="goTo('/domains')" ng-show="isLoggedIn()" translate="BTN_DOMAINS"></md-button>
       <md-button ng-click="logout()" ng-show="isLoggedIn()" translate="BTN_LOGOUT"></md-button>
       <md-button ng-click="goTo('/login')" ng-show="!isLoggedIn()" translate="BTN_LOGIN"></md-button>
       <md-button ng-click="goTo('/register')" ng-show="!isLoggedIn()" translate="BTN_REGISTER"></md-button>
@@ -118,7 +118,7 @@
               <md-list-item class="md-1-line" ng-repeat="concept in sideNav.play.concepts">
                 <md-button class="md-list-item-text" flex ng-click="sideNav.conceptSelected(concept)">{{ concept.name }}</md-button>
 
-                <md-button class="md-primary" ng-click="sideNav.score(concept)">Voir score</md-button>
+                <md-button class="md-primary" ng-click="sideNav.score(concept)" translate="SCORE"></md-button>
               </md-list-item>
             </md-list>
           </md-tab>

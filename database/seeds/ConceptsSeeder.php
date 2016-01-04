@@ -10,6 +10,8 @@ class ConceptsSeeder extends Seeder
      * @return void
      */
     public function run() {
+      $concept_id = 1;
+      $domain_id = 1;
       // Cats domain
       //  --> cat
       DB::table('concepts')->insert([
@@ -18,9 +20,10 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://rack.1.mshcdn.com/media/ZgkyMDEyLzEyLzA0L2QwL2NhdC5jNEEKcAl0aHVtYgkxNTB4MTUwIwplCWpwZw/4d610ee3/6a7/cat.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 1,
-          'concept_id' => 1,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
       //  --> cat food
       DB::table('concepts')->insert([
        'name' => 'Cat Food',
@@ -28,9 +31,10 @@ class ConceptsSeeder extends Seeder
        'image' => 'https://nodogaboutit.files.wordpress.com/2010/10/j0430956.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 1,
-          'concept_id' => 2,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
 
       //  --> Siamese Cat Breed
       DB::table('concepts')->insert([
@@ -39,9 +43,10 @@ class ConceptsSeeder extends Seeder
        'image' => 'https://i.ytimg.com/vi/1QtWKHogLxQ/hqdefault.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 1,
-          'concept_id' => 3,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
 
       //  --> Cat Owner
       DB::table('concepts')->insert([
@@ -50,126 +55,61 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://dykn.com/wp-content/uploads/2012/07/dailyworldfacts.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 1,
-          'concept_id' => 4,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
 
       // DurDur
       // General
-      //  nitrogen-protein-contaminants
-      DB::table('concepts')->insert([
-       'name' => 'Nitrogen Protein Contaminants',
-       'description' => 'Contaminants d\'azote des protéines.',
-       'image' => 'http://www.microc.com/images/childpage/icn-nitrate.png',
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 5,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 5,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 5,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 5,
-      ]);
-
+      $domain_id++;
       //  pedo-climatic condition
       DB::table('concepts')->insert([
-       'name' => 'Pedo-climatic conditions',
-       'description' => 'Conditions pedo-climatiques.',
+       'name' => 'Pedoclimatic conditions',
+       'description' => 'Conditions pédoclimatiques.',
        'image' => 'http://www.pediacognac.com/wp-content/uploads/2009/04/image34.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 6,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 6,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 6,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 6,
-      ]);
+      $concept_id++;
 
       //  protein quality
       DB::table('concepts')->insert([
        'name' => 'Protein quality',
-       'description' => 'La qualité des protéines.',
+       'description' => 'La qualité protéique.',
        'image' => 'https://upload.wikimedia.org/wikipedia/commons/3/31/Protein_S100B_PDB_1b4c.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 7,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 7,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 7,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 7,
-      ]);
+      $concept_id++;
 
       //  process management
       DB::table('concepts')->insert([
        'name' => 'Process management',
-       'description' => 'Process Management.',
+       'description' => 'Gestion des procédé.',
        'image' => 'http://www.microc.com/images/childpage/icn-nitrate.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 8,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 8,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 8,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 8,
-      ]);
+      $concept_id++;
 
       //  Climate change
       DB::table('concepts')->insert([
        'name' => 'Climate change',
-       'description' => 'Changement climatique.',
+       'description' => 'Changements climatiques.',
        'image' => 'http://www.microc.com/images/childpage/icn-nitrate.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 9,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 9,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 9,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 9,
-      ]);
+      $concept_id++;
 
       // Regulation evolution
       DB::table('concepts')->insert([
@@ -178,109 +118,85 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://www.microc.com/images/childpage/icn-nitrate.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 10,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 10,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 10,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 10,
-      ]);
+      $concept_id++;
 
       // EU nitrate directive
       DB::table('concepts')->insert([
        'name' => 'EU nitrate directive',
-       'description' => 'Directive de l\'UE sur les nitrates.',
+       'description' => 'Directive nitrates Européenne.',
        'image' => 'http://www.artisanfoodlaw.co.uk/sites/artisanfoodlaw.co.uk/files/eu_logo_01.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 11,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 11,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 11,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 11,
-      ]);
+      $concept_id++;
 
-      // EU nitrate directive
+      // Pasta consumption
       DB::table('concepts')->insert([
        'name' => 'Pasta consumption',
-       'description' => 'La consommation de pâtes.',
+       'description' => 'Consommation de pâtes alimentaires.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 12,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 12,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 12,
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 12,
-      ]);
+      $concept_id++;
 
       // Agro
+      $domain_id++;
       // Nitrogen Fertiliser
       DB::table('concepts')->insert([
-       'name' => 'Nitrogen Fertiliser',
-       'description' => 'Engrais azoté.',
+       'name' => 'Nitrogen Fertilization',
+       'description' => 'Fertilisation azotée.',
        'image' => 'http://www.australianmanufacturing.com.au/wp-content/uploads/2013/07/blue-fertilizer-2.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 13,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // cropping systems
       DB::table('concepts')->insert([
        'name' => 'Cropping Systems',
-       'description' => 'Systèmes de Culture.',
+       'description' => 'Systèmes de culture.',
        'image' => 'http://www.spacedaily.com/images-lg/biofuel-cropping-system-lg.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 14,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // Gain protein content
       DB::table('concepts')->insert([
-       'name' => 'Gain protein content',
-       'description' => 'Gagner en teneur en protéines.',
+       'name' => 'Grain protein content',
+       'description' => 'Teneur en protéines des grains.',
        'image' => 'http://previewcf.turbosquid.com/Preview/2014/07/06__16_05_21/protein-3.jpg57eb1785-ca8f-4483-ad75-021ec49706e0Large.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 15,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // leguminous preceeding crop
       DB::table('concepts')->insert([
-       'name' => 'Leguminous preceding crop',
-       'description' => 'Culture légumineuse précédente.',
+       'name' => 'Leguminous as previous crop',
+       'description' => 'Précédent légumineuse.',
        'image' => 'http://agritech.tnau.ac.in/org_farm/images/inputs/crop-rotation-cnt.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 16,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // reduction of mycotoxin contamination
       DB::table('concepts')->insert([
        'name' => 'Reduction of mycotoxin contamination',
@@ -288,114 +204,174 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://agritech.tnau.ac.in/org_farm/images/inputs/crop-rotation-cnt.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 17,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
-      // Recycling organic product
+      $concept_id++;
+      // Grain quality`
       DB::table('concepts')->insert([
-       'name' => 'Recycling organic products',
-       'description' => 'Recyclage des produits organique.',
-       'image' => 'http://www.coulette.ch/wp-content/uploads/2013/04/recycler-sigle.jpg',
+       'name' => 'Grain Quality',
+       'description' => 'Qualité des grains.',
+       'image' => 'http://agritech.tnau.ac.in/org_farm/images/inputs/crop-rotation-cnt.png',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 2,
-          'concept_id' => 18,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
+      // Grain yield`
+      DB::table('concepts')->insert([
+       'name' => 'Grain yield',
+       'description' => 'Rendement en grains.',
+       'image' => 'http://agritech.tnau.ac.in/org_farm/images/inputs/crop-rotation-cnt.png',
+      ]);
+      DB::table('concept_domain')->insert([
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
+      ]);
+      $concept_id++;
+      // Wheat Production`
+      DB::table('concepts')->insert([
+       'name' => 'Wheat Production',
+       'description' => 'La production de blé.',
+       'image' => 'http://agritech.tnau.ac.in/org_farm/images/inputs/crop-rotation-cnt.png',
+      ]);
+      DB::table('concept_domain')->insert([
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
+      ]);
+      $concept_id++;
 
       // Profile Transformation
+      $domain_id++;
       // semolina yield
       DB::table('concepts')->insert([
        'name' => 'Semolina yield',
-       'description' => 'Rendement en semoule.',
+       'description' => 'Rendement semoulier.',
        'image' => 'http://www.kingarthurflour.com/item-img/3429_07_17_2012__10_53_49_700',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 19,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // pasta cooking quality
       DB::table('concepts')->insert([
        'name' => 'Pasta cooking quality',
-       'description' => 'La qualité de cuisson des pâtes.',
+       'description' => 'Qualité culinaire des pâtes alimentaires.',
        'image' => 'http://www.crissa.ca/images/Pasta-Dish.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 20,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
+
       // protein content
       DB::table('concepts')->insert([
        'name' => 'Protein content',
-       'description' => 'la teneur en protéines.',
+       'description' => 'Teneur en protéines.',
        'image' => 'http://previewcf.turbosquid.com/Preview/2014/07/06__16_05_21/protein-3.jpg57eb1785-ca8f-4483-ad75-021ec49706e0Large.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 21,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // gluten tzenacity
       DB::table('concepts')->insert([
-       'name' => 'Gluten tenacity',
-       'description' => 'Ténacité en Gluten.',
+       'name' => 'Gluten quality',
+       'description' => 'Qualité du gluten.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 22,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // debranning prior grain milling
       DB::table('concepts')->insert([
        'name' => 'Debranning prior grain milling',
-       'description' => 'Debranning avant mouture des grains.',
+       'description' => 'élimination des sons avant mouture.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 23,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // couscous processing
       DB::table('concepts')->insert([
        'name' => 'Couscous Processing',
-       'description' => 'Traitement de Couscous.',
+       'description' => 'Fabrication de Couscous.',
        'image' => 'http://realfood.tesco.com/media/images/couscous-HERO-6e599284-1faa-40c1-9ba0-9575f190e509-0-472x310.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 3,
-          'concept_id' => 24,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
+      // Pasta processing
+      DB::table('concepts')->insert([
+       'name' => 'Pasta Processing',
+       'description' => 'Fabrication des pates.',
+       'image' => 'http://realfood.tesco.com/media/images/couscous-HERO-6e599284-1faa-40c1-9ba0-9575f190e509-0-472x310.jpg',
+      ]);
+      DB::table('concept_domain')->insert([
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
+      ]);
+      $concept_id++;
+
+      // Milling
+      DB::table('concepts')->insert([
+       'name' => 'Milling',
+       'description' => 'Mouture.',
+       'image' => 'http://realfood.tesco.com/media/images/couscous-HERO-6e599284-1faa-40c1-9ba0-9575f190e509-0-472x310.jpg',
+      ]);
+      DB::table('concept_domain')->insert([
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
+      ]);
+      $concept_id++;
+
 
 
       // Profile Socio-economic
-      // Production risk
-      DB::table('concepts')->insert([
-       'name' => 'Production risk',
-       'description' => 'Risque de production.',
-       'image' => 'http://www.dreamengine.com.au/wp-content/uploads/2012/11/video-production-risk.jpg',
-      ]);
-      DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 25,
-      ]);
+      $domain_id++;
+
       // management risk
       DB::table('concepts')->insert([
-       'name' => 'Management risk',
-       'description' => 'les risques de gestion.',
-       'image' => 'http://www.dreamengine.com.au/wp-content/uploads/2012/11/video-production-risk.jpg',
+       'name' => 'Risk management',
+       'description' => 'Gestion du risque',
+       'image' =>
+       'www.dreamengine.com.au/wp-content/uploads/2012/11/video-production-risk.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 26,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // quality traceability
       DB::table('concepts')->insert([
-       'name' => 'Quality traceability',
-       'description' => 'Traçabilité de la qualité.',
+       'name' => 'Traceability',
+       'description' => 'Traçabilité.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 27,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // Consumer behavior
       DB::table('concepts')->insert([
        'name' => 'Consumer behavior',
@@ -403,9 +379,11 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 28,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // sustainability
       DB::table('concepts')->insert([
        'name' => 'Sustainability',
@@ -413,41 +391,48 @@ class ConceptsSeeder extends Seeder
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 29,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // Logistics
       DB::table('concepts')->insert([
-       'name' => 'Logistics',
-       'description' => 'Logistiques.',
+       'name' => 'Logistics energy consumption',
+       'description' => 'Consommation énergétique liée à la logistique.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 4,
-          'concept_id' => 30,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
 
 
       // Profile ACV
+      $domain_id++;
       // reduction of mycotoxin contamination
       DB::table('concepts')->insert([
-       'name' => 'Semolina environmental impact',
-       'description' => 'L\'impact environnemental de la semoule.',
+       'name' => 'Semolina production environmental impact',
+       'description' => 'L\'impact environnemental de la production de semoule.',
        'image' => 'http://www.augustinc.com/fabrics/images/Drift%20mom/drift-semolina.jpg',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 31,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
+      $concept_id++;
+
       // Recycling organic product
       DB::table('concepts')->insert([
        'name' => 'Stakeholder conflicts',
-       'description' => 'Conflits des parties prenantes.',
+       'description' => 'Conflits entre parties prenantes.',
        'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
       ]);
       DB::table('concept_domain')->insert([
-          'domain_id' => 5,
-          'concept_id' => 32,
+          'domain_id' => $domain_id,
+          'concept_id' => $concept_id,
       ]);
     }
 }

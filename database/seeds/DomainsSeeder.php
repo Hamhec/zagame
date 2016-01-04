@@ -25,6 +25,12 @@ class DomainsSeeder extends Seeder
        ]);*/
 
        DB::table('domains')->insert([
+           'title' => 'Dur/Dur - General terms',
+           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts généraux de ce domaine.",
+           'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
+       ]);
+
+       DB::table('domains')->insert([
            'title' => 'Dur/Dur - Agro',
            'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts perçu par les experts d'agronomie.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',

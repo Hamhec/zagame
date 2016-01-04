@@ -99,7 +99,7 @@
 
     $translateProvider.uniformLanguageTag('bcp47');
     $translateProvider.fallbackLanguage('en');
-    $translateProvider.preferredLanguage('fr');
+    $translateProvider.preferredLanguage('en');
   });
 
   // Handle Security
