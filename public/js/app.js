@@ -103,7 +103,7 @@
   });
 
   // Handle Security
-  app.run(function($route, $rootScope, $location, $mdDialog, AuthenticationService, FlashService, SessionService, PlayService, MatchService) {
+  app.run(function($route, $rootScope, $location, $mdDialog, $mdSidenav, AuthenticationService, FlashService, SessionService, PlayService, MatchService) {
     var routesThatDontRequireAuth = ['/home', '/login', '/register'];
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
