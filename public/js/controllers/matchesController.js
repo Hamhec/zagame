@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  angular.module('myApp').controller('MatchesController', ['$rootScope', '$location', 'MatchService', MatchesController]);
+  angular.module('myApp').controller('MatchesController', ['$rootScope', '$location', 'MatchService', 'SessionService', MatchesController]);
 
-  function MatchesController($rootScope, $location, MatchService) {
+  function MatchesController($rootScope, $location, MatchService, SessionService) {
     var matches = this;
 
     MatchService.get().then(function(response) {
