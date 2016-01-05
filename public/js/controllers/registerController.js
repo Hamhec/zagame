@@ -13,12 +13,21 @@
     register.submit = function() {
       RegistrationService.register(register.data)
       .then(function(response) { // success
-        if(response.data.password ) {
-          FlashService.show(response.data.password);
-        } else if(response.data.email) {
-          FlashService.show(response.data.email);
-        }
         $location.path('/domains');
+      }, function(response) {
+        var message = "";
+        if(response.data.username) {
+          message += response.data.username ;
+        }
+        if(response.data.password ) {
+          if(message != "") { message += " And "; }
+          message += response.data.password;
+        }
+        if(response.data.email) {
+          if(message != "") { message += " And "; }
+          message += response.data.email;
+        }
+        FlashService.show(message);
       });
     }
   }

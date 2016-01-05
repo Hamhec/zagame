@@ -20,8 +20,9 @@
       // Registration function
       register: function(credentials) {
         var register = $http.post('api/auth/register', sanitizeCredentials(credentials));
-        register = register.then(AuthenticationService.cacheSession, FlashService.showError);
-        register.then(FlashService.clear);
+        // TODO bricolage get Flash.showError working again
+        register = register.then(AuthenticationService.cacheSession, null);
+        register = register.then(FlashService.clear);
         return register;
       }
     };
