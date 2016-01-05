@@ -51,7 +51,7 @@
         <div class="icon"><i class="material-icons md-24">view_headline</i></div>
       </md-button>
 
-      <h1 class="md-toolbar-tools" flex hide show-gt-md>Knowledge AssociaTions Game <span class="text-small">v0.1.3</span></h1>
+      <h1 class="md-toolbar-tools" flex hide show-gt-md>Knowledge AssociaTions Game <span class="text-small">v0.5.7</span></h1>
       <h1 class="md-toolbar-tools" flex hide-gt-md>KAT <span class="text-small">v0.5.7</span></h1>
 
       <md-button ng-click="goTo('/matches')" ng-show="isLoggedIn()">Score: {{totalScore}}pts</md-button>

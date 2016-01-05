@@ -10,12 +10,12 @@ class DomainsSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { /*
        DB::table('domains')->insert([
            'title' => 'Cats',
            'text' => "Try to guess what other cat lovers [or haters ;)] like you think about cats purrrr",
            'image' => 'http://dykn.com/wp-content/uploads/2012/07/dailyworldfacts.jpg',
-       ]);
+       ]);*/
 
        /*DB::table('domains')->insert([
            'title' => 'Dur/Dur - Agro',

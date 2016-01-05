@@ -11,7 +11,9 @@ class ProfilesSeeder extends Seeder
      */
     public function run()
     {
-        /* Cat alergies? */
+        $profile_id = 1;
+        /*
+        // Cat alergies?
         DB::table('profiles')->insert([
             'designation' => 'Cat alergies?',
             'Question' => "Do you have an alergie from cats or cat related products?",
@@ -31,7 +33,7 @@ class ProfilesSeeder extends Seeder
             'profile_id' => 1,
         ]);
 
-        /* Own a cat? */
+        // Own a cat?
         DB::table('profiles')->insert([
             'designation' => 'Own a Cat?',
             'Question' => "Do you have at home? whether its yours or not.",
@@ -54,7 +56,7 @@ class ProfilesSeeder extends Seeder
             'value' => 'Yes, but I wish I didnt',
             'profile_id' => 2,
         ]);
-
+*/
         /* Male or femail */
         DB::table('profiles')->insert([
             'designation' => 'Gender?',
@@ -63,45 +65,46 @@ class ProfilesSeeder extends Seeder
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Man',
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Woman',
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
         ]);
 
         DB::table('domain_profile')->insert([
             'domain_id' => 1,
-            'profile_id' => 3,
-            'importance' => 2,
+            'profile_id' => $profile_id,
+            'importance' => 1,
         ]);
         DB::table('domain_profile')->insert([
             'domain_id' => 2,
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
             'importance' => 1,
         ]);
         DB::table('domain_profile')->insert([
             'domain_id' => 3,
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
             'importance' => 1,
         ]);
         DB::table('domain_profile')->insert([
             'domain_id' => 4,
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
             'importance' => 1,
         ]);
         DB::table('domain_profile')->insert([
             'domain_id' => 5,
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
             'importance' => 1,
         ]);
+        /*
         DB::table('domain_profile')->insert([
             'domain_id' => 6,
-            'profile_id' => 3,
+            'profile_id' => $profile_id,
             'importance' => 1,
-        ]);
+        ]);*/
 
-
+        $profile_id++;
         // Dur-Dur
 
         /* Profile */
@@ -113,42 +116,43 @@ class ProfilesSeeder extends Seeder
         // Dur-dur Agro
         DB::table('domain_profile')->insert([
             'domain_id' => 2,
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur Transo
         DB::table('domain_profile')->insert([
             'domain_id' => 3,
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur Socio-economic
         DB::table('domain_profile')->insert([
             'domain_id' => 4,
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur ACV
         DB::table('domain_profile')->insert([
             'domain_id' => 5,
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         DB::table('domain_profile')->insert([
-            'domain_id' => 6,
-            'profile_id' => 4,
+            'domain_id' => 1,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
 
         DB::table('profile_possible_values')->insert([
             'value' => 'Yes',
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'No',
-            'profile_id' => 4,
+            'profile_id' => $profile_id,
         ]);
 
+        $profile_id++;
         /* Profile */
         DB::table('profiles')->insert([
             'designation' => 'Area of expertise?',
@@ -158,56 +162,56 @@ class ProfilesSeeder extends Seeder
         // Dur-dur Agro
         DB::table('domain_profile')->insert([
             'domain_id' => 2,
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur Transo
         DB::table('domain_profile')->insert([
             'domain_id' => 3,
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur Socio-economic
         DB::table('domain_profile')->insert([
             'domain_id' => 4,
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         // Dur-dur ACV
         DB::table('domain_profile')->insert([
             'domain_id' => 5,
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
         DB::table('domain_profile')->insert([
-            'domain_id' => 6,
-            'profile_id' => 5,
+            'domain_id' => 1,
+            'profile_id' => $profile_id,
             'importance' => 3,
         ]);
 
         DB::table('profile_possible_values')->insert([
             'value' => 'Agronomy',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Transformation',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Socio-economic',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'ACV',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Informatique',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Aucun',
-            'profile_id' => 5,
+            'profile_id' => $profile_id,
         ]);
 
     }

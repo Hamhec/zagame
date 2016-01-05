@@ -12,7 +12,7 @@ class ConceptsSeeder extends Seeder
     public function run() {
       $concept_id = 1;
       $domain_id = 1;
-      // Cats domain
+      /*// Cats domain
       //  --> cat
       DB::table('concepts')->insert([
        'name' => 'Cat',
@@ -59,10 +59,10 @@ class ConceptsSeeder extends Seeder
           'concept_id' => $concept_id,
       ]);
       $concept_id++;
-
+*/
       // DurDur
       // General
-      $domain_id++;
+  //    $domain_id++;
       //  pedo-climatic condition
       DB::table('concepts')->insert([
        'name' => 'Pedoclimatic conditions',
