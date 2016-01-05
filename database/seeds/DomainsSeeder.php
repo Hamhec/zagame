@@ -26,31 +26,31 @@ class DomainsSeeder extends Seeder
 
        DB::table('domains')->insert([
            'title' => 'Dur/Dur - General terms',
-           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts généraux de ce domaine.",
+           'text' => "You've worked on the Dur-Dur project? Good! Try to guess what other experts like you think about some general concepts of the Dur-Dur project.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
        ]);
 
        DB::table('domains')->insert([
            'title' => 'Dur/Dur - Agro',
-           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts perçu par les experts d'agronomie.",
+           'text' => "You've worked on the Dur-Dur project? Good! Try to guess what other experts like you think about concepts perceived by Agronomy experts.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
        ]);
 
        DB::table('domains')->insert([
            'title' => 'Dur/Dur - Transformation',
-           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts perçu par les experts de transformation.",
+           'text' => "You've worked on the Dur-Dur project? Good! Try to guess what other experts like you think about concepts perceived by Transformation experts.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
        ]);
 
        DB::table('domains')->insert([
            'title' => 'Dur/Dur - Socio-economic',
-           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts perçu par les experts socio-economique.",
+           'text' => "You've worked on the Dur-Dur project? Good! Try to guess what other experts like you think about concepts perceived by Socio-economic experts.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
        ]);
 
        DB::table('domains')->insert([
            'title' => 'Dur/Dur - ACV',
-           'text' => "Vous avez travaillé sur le projet DurDur? Super! essayez de comparer vos connaissances sur les concepts perçu par les experts ACV.",
+           'text' => "You've worked on the Dur-Dur project? Good! Try to guess what other experts like you think about concepts perceived by ACV experts.",
            'image' => 'http://static.greatbigcanvas.com/images/square/alaska-stock/abandoned-farm-wind-blown-durum-wheat-field-saskatchewan-canada,1902423.jpg?max=128',
        ]);
     }

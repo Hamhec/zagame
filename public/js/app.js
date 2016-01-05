@@ -163,7 +163,7 @@
           .parent(angular.element(document.querySelector('#content')))
           .clickOutsideToClose(true)
           .title('Oops!')
-          .content("Cette fonctionnalité n'a pas encore été programmée dans la version 0.1.3 de ce jeux. Pour plus d'infos, suivez nous sur Github: <a href='https://github.com/hamhec/zagame'><md-button>Za Game Github</md-button></a>")
+          .content("Cette fonctionnalité n'a pas encore été programmée dans la version 0.5.7 de ce jeu. Pour plus d'infos, suivez nous sur Github: <a href='https://github.com/hamhec/zagame'><md-button>Za Game Github</md-button></a>")
           .ariaLabel('Alert Dialog Problem')
           .ok('Ok')
           .targetEvent(ev)

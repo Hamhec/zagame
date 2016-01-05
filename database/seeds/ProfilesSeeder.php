@@ -61,11 +61,6 @@ class ProfilesSeeder extends Seeder
             'Question' => "Are you a man or a woman?",
             'infinite' => 0,
         ]);
-        DB::table('domain_profile')->insert([
-            'domain_id' => 1,
-            'profile_id' => 3,
-            'importance' => 2,
-        ]);
         DB::table('profile_possible_values')->insert([
             'value' => 'Man',
             'profile_id' => 3,
@@ -75,81 +70,123 @@ class ProfilesSeeder extends Seeder
             'profile_id' => 3,
         ]);
 
+        DB::table('domain_profile')->insert([
+            'domain_id' => 1,
+            'profile_id' => 3,
+            'importance' => 2,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 2,
+            'profile_id' => 3,
+            'importance' => 1,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 3,
+            'profile_id' => 3,
+            'importance' => 1,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 4,
+            'profile_id' => 3,
+            'importance' => 1,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 5,
+            'profile_id' => 3,
+            'importance' => 1,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 6,
+            'profile_id' => 3,
+            'importance' => 1,
+        ]);
+
 
         // Dur-Dur
-        /* Male or femail */
+
+        /* Profile */
         DB::table('profiles')->insert([
-            'designation' => 'Sexe?',
-            'Question' => "Vous etes un homme ou une femme?",
+            'designation' => 'Part of the DUR-DUR project?',
+            'Question' => "Are you an expert working on the Dur-Dur Project?",
             'infinite' => 0,
         ]);
         // Dur-dur Agro
         DB::table('domain_profile')->insert([
             'domain_id' => 2,
             'profile_id' => 4,
-            'importance' => 1,
+            'importance' => 3,
         ]);
         // Dur-dur Transo
         DB::table('domain_profile')->insert([
             'domain_id' => 3,
             'profile_id' => 4,
-            'importance' => 1,
+            'importance' => 3,
         ]);
         // Dur-dur Socio-economic
         DB::table('domain_profile')->insert([
             'domain_id' => 4,
             'profile_id' => 4,
-            'importance' => 1,
+            'importance' => 3,
         ]);
         // Dur-dur ACV
         DB::table('domain_profile')->insert([
             'domain_id' => 5,
             'profile_id' => 4,
-            'importance' => 1,
+            'importance' => 3,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 6,
+            'profile_id' => 4,
+            'importance' => 3,
         ]);
 
         DB::table('profile_possible_values')->insert([
-            'value' => 'Homme',
+            'value' => 'Yes',
             'profile_id' => 4,
         ]);
         DB::table('profile_possible_values')->insert([
-            'value' => 'Femme',
+            'value' => 'No',
             'profile_id' => 4,
         ]);
 
         /* Profile */
         DB::table('profiles')->insert([
-            'designation' => 'Domaine d\'expertise?',
-            'Question' => "Quel est votre domaine d\'expertise dans le projet Dur-Dur?",
+            'designation' => 'Area of expertise?',
+            'Question' => "What is your area of expertise in the Dur-Dur project?",
             'infinite' => 0,
         ]);
         // Dur-dur Agro
         DB::table('domain_profile')->insert([
             'domain_id' => 2,
             'profile_id' => 5,
-            'importance' => 4,
+            'importance' => 3,
         ]);
         // Dur-dur Transo
         DB::table('domain_profile')->insert([
             'domain_id' => 3,
             'profile_id' => 5,
-            'importance' => 4,
+            'importance' => 3,
         ]);
         // Dur-dur Socio-economic
         DB::table('domain_profile')->insert([
             'domain_id' => 4,
             'profile_id' => 5,
-            'importance' => 4,
+            'importance' => 3,
         ]);
         // Dur-dur ACV
         DB::table('domain_profile')->insert([
             'domain_id' => 5,
             'profile_id' => 5,
-            'importance' => 4,
+            'importance' => 3,
+        ]);
+        DB::table('domain_profile')->insert([
+            'domain_id' => 6,
+            'profile_id' => 5,
+            'importance' => 3,
         ]);
 
         DB::table('profile_possible_values')->insert([
-            'value' => 'Agronomie',
+            'value' => 'Agronomy',
             'profile_id' => 5,
         ]);
         DB::table('profile_possible_values')->insert([

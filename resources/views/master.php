@@ -52,7 +52,7 @@
       </md-button>
 
       <h1 class="md-toolbar-tools" flex hide show-gt-md>Knowledge AssociaTions Game <span class="text-small">v0.1.3</span></h1>
-      <h1 class="md-toolbar-tools" flex hide-gt-md>KAT <span class="text-small">v0.1.3</span></h1>
+      <h1 class="md-toolbar-tools" flex hide-gt-md>KAT <span class="text-small">v0.5.7</span></h1>
 
       <md-button ng-click="goTo('/matches')" ng-show="isLoggedIn()">Score: {{totalScore}}pts</md-button>
 
@@ -125,7 +125,7 @@
           </md-tab>
           <md-tab label="About">
             <md-list>
-              <md-list-item class="md-1-line" ng-click="showNotCompleted($event)">
+              <md-list-item class="md-1-line" ng-click="goTo('/home')">
                 <div class="icon"><i class="material-icons md-24">gps_fixed</i></div>
                 <div class="md-list-item-text" flex translate="PURPOSE"></div>
               </md-list-item>
