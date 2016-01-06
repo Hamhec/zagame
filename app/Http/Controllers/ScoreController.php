@@ -88,8 +88,13 @@ class ScoreController extends Controller
           $score *= $user_association->opponent_degree / 100;
 
           // take into account Appreciation
-          $user_appreciation = $user_association->associated_concept->appreciations->first()->appreciation;
-          $opponent_appreciation = $user_association->opponent_association->associated_concept->appreciations->first()->appreciation;
+          $user_appreciation = null;
+          $opponent_appreciation = null;
+          if($user_association->associated_concept->appreciations->count() > 0)
+            $user_appreciation = $user_association->associated_concept->appreciations->first()->appreciation;
+
+          if($user_association->opponent_association->associated_concept->appreciations->count() > 0)
+            $opponent_appreciation = $user_association->opponent_association->associated_concept->appreciations->first()->appreciation;
 
           if($user_appreciation != null && $opponent_appreciation != null) {
             $score -= abs($user_appreciation - $opponent_appreciation) * 10;
@@ -101,10 +106,11 @@ class ScoreController extends Controller
           $score += 5 * (1 - $matching) * 10;
 
           // add it to total score:
-          $user_association->score = $score;
+          $user_association->score = floor($score);
           $total_score += $score;
         }
       }
+      $total_score = floor($total_score);
       // 1pts for participation
       $total_score += 1;
       if($match->score == null) {
